@@ -52,6 +52,17 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
+;;(add-to-list 'load-path
+;;              "~/.emacs.d/plugins/yasnippet")
+;;(require 'yasnippet)
+;;(setq yas-snippet-dirs
+;;      '("~/.emacs.d/snippets"))
+;;(yas-global-mode 1)
+;;(define-key yas-minor-mode-map [(tab)] nil)
+;;(define-key yas-minor-mode-map (kbd "TAB") nil)
+;;(define-key yas-minor-mode-map (kbd "<tab>") nil)
+;;(define-key yas-keymap [(tab)] nil)
+;;(define-key yas-keymap (kbd "TAB") nil)
 
 
 (show-paren-mode 1)
