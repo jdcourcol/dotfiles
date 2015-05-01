@@ -38,19 +38,17 @@ source $ZSH/oh-my-zsh.sh
 PROMPT='%{$fg[cyan]%}%B%m %{$reset_color%}'
 # Customize to your needs...
 export PATH=/home/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-source ~/ExportJavaEnv.sh
-#export PYTHONPATH=/usr/lib/python2.7/dist-packages/:/usr/share/pyshared/
-#export PYENV_ROOT=$HOME/.pyenv
-#export PATH=$PYENV_ROOT/bin:$PATH
-#eval "$(pyenv init -)"
+
 va () {
    source `find . -name activate`
 }
+
 viz(){
  klist || kinit
  ssh -Yt bbplinsrv2.epfl.ch $'salloc -n1 -p interactive /bin/bash -c \' ssh -Y `srun -p interactive hostname`\' '
 }
+
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
-alias emacs='/usr/bin/emacsclient -ct'
+alias ec='/usr/bin/emacsclient -ct'
 alias es='/usr/bin/emacs --daemon'
