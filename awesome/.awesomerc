@@ -1,0 +1,68 @@
+screen 0
+ { 
+     titlebar
+     { 
+         position = "top" 
+         text_align = "left" 
+         styles 
+          { 
+              normal { fg = "#ECDDA6"	bg = "#000000"	border = "#000000" } 
+              focus  { fg = "#B23308"	bg = "#000000"	border = "#000000" } 
+          }
+         height = "13" 
+     }
+     tags
+      {
+        tag one   { layout = "float" }
+        tag two   { layout = "max" }
+        tag three { layout = "tile" }
+       }
+ }
+ rules
+ {
+ }
+ mouse
+ {
+ }
+keys
+ {   
+   ## Applications
+   ## Application launchers
+   ## Awesome window manager
+   ## Layouts
+  
+   ## Clients
+ 
+   ## Window Switching
+ 
+   ## Other     
+   ## Keylists
+     keylist
+     {
+         modkey = {"Mod4", "Control"}
+         command = "tag_view"
+         keylist = { F1, F2, F3, F4, F5, F6, F7, F8, F9 }
+         arglist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+     }
+     keylist
+     {
+         modkey = {"Mod4", "Control"}
+         command = "tag_toggleview"
+         keylist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+         arglist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+     }
+     keylist
+     {
+         modkey = {"Mod4", "Shift"}
+         command = "client_tag"
+         keylist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+         arglist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+     }
+     keylist
+     {
+         modkey = {"Mod4", "Shift", "Control"}
+         command = "client_toggletag"
+         keylist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+         arglist = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+     }
+ }
