@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="frisk"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -18,7 +18,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 #source /home/courcol/git-prompt/zshrc.sh
 #PROMPT='%{$fg[cyan]%}%B%m %{$reset_color%}%~%b%{$fg_bold[blue]%} $(git_super_status)%{$fg_bold[blue]%} % %{$reset_color%} %# '
-PROMPT='%{$fg[cyan]%}%B%m %{$reset_color%}'
+#PROMPT='%{$fg[cyan]%}%B%d %{$reset_color%}'
 # Customize to your needs...
 export PATH=/home/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 

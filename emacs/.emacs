@@ -45,12 +45,12 @@
 
 (global-set-key [f7] 'ack)
 (add-to-list 'load-path "/home/courcol/.emacs.d/")
-(require 'edit-server)
-(edit-server-start)
+;;(require 'edit-server)
+;;(edit-server-start)
 
 ;; web editing
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;;(require 'web-mode)
+;;(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;;(add-to-list 'load-path
 ;;              "~/.emacs.d/plugins/yasnippet")
@@ -73,16 +73,14 @@
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
 	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
 	(t (self-insert-command (or arg 1)))))
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
 
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
 
 (autoload 'bash-completion-dynamic-complete 
   "bash-completion"
