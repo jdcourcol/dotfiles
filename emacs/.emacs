@@ -11,6 +11,7 @@
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 (setq mac-command-key-is-meta t)
 (setq tab-width 4)
+(setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
