@@ -23,7 +23,7 @@
 ;;to set background color to black
 (set-background-color "black")
 
-
+(setq transient-mark-mode t)
 ;;; Shell mode
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red4" "green4" "yellow4"
