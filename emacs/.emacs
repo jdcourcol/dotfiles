@@ -101,7 +101,7 @@
            (local-file (file-relative-name
                         temp-file
                         (file-name-directory buffer-file-name))))
-      (list "/home/courcol/.emacs.d/bbp-python/emacs_checker.sh" (list local-file))))
+      (list "/home/courcol/tools/emacs_checker/emacs_checker.sh" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-checker-init)))
 
