@@ -20,6 +20,9 @@
 ;;to set foreground color to white
 (set-foreground-color "white")
 
+;; find file at point. ~ vi gf
+(ffap-bindings)
+
 ;; tmux mangling
 (global-set-key "\M-[1;5C"    'forward-word)  ; Ctrl+right   => forward word
 (global-set-key "\M-[1;5D"    'backward-word) ; Ctrl+left    => backward word
