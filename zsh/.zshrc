@@ -43,6 +43,14 @@ va () {
    source `find . -name activate`
 }
 
+unamestr=`uname`
+
+if [[ "$unamestr" != "darwin" ]]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
+
 viz(){
  klist || kinit
  ssh -Yt bbplxviz1.epfl.ch $'salloc -n1 -p interactive /bin/bash -c \' ssh -Y `srun -p interactive hostname`\' '
@@ -50,5 +58,3 @@ viz(){
 
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
-alias ec='/usr/bin/emacsclient -ct'
-alias es='/usr/bin/emacs --daemon'

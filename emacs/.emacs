@@ -136,3 +136,12 @@
 (setq-default show-trailing-whitespace t)
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
+
+(setq x-select-enable-clipboard t)
+(xclip-mode 1)
+;;(setq interprogram-cut-function
+;;      (lambda (text &optional push)
+;;    (let* ((process-connection-type nil)
+;;           (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
+;;      (process-send-string pbproxy text)
+;;      (process-send-eof pbproxy))))
