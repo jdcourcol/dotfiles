@@ -13,6 +13,13 @@
 (setq tab-width 4)
 (setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
+(menu-bar-mode -1)
+
+(require `ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
@@ -137,6 +144,10 @@
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+
 (setq x-select-enable-clipboard t)
 (xclip-mode 1)
 ;;(setq interprogram-cut-function
@@ -145,3 +156,17 @@
 ;;           (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
 ;;      (process-send-string pbproxy text)
 ;;      (process-send-eof pbproxy))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil)))))
