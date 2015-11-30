@@ -148,10 +148,12 @@
 (xclip-mode 1)
 
 (require `ido)
+(ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-(ido-mode 1)
 
+(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
+(global-set-key [remap execute-extended-command] 'smex)
 
 ;;(setq interprogram-cut-function
 ;;      (lambda (text &optional push)
