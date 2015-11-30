@@ -15,10 +15,6 @@
 (setq-default indent-tabs-mode nil)
 (menu-bar-mode -1)
 
-(require `ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
 
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
@@ -150,6 +146,13 @@
 
 (setq x-select-enable-clipboard t)
 (xclip-mode 1)
+
+(require `ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+
 ;;(setq interprogram-cut-function
 ;;      (lambda (text &optional push)
 ;;    (let* ((process-connection-type nil)
