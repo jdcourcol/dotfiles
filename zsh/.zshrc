@@ -58,3 +58,4 @@ viz(){
 
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
+alias em='emacs -nw'
