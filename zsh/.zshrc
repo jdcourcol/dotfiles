@@ -58,7 +58,7 @@ viz(){
 
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
-alias em='emacs -nw'
+alias em='set +m; emacs -nw'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias gap='git add -p'
