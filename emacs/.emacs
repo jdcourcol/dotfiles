@@ -165,6 +165,6 @@
 (global-linum-mode t)
 (setq linum-format "%d ")
 (setq inhibit-startup-message t)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;(add-hook 'python-mode-hook 'jedi:setup)
+;(setq jedi:complete-on-dot t)
 
