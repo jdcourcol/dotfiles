@@ -64,15 +64,6 @@
 
 ;;(add-to-list 'load-path
 ;;              "~/.emacs.d/plugins/yasnippet")
-;;(require 'yasnippet)
-;;(setq yas-snippet-dirs
-;;      '("~/.emacs.d/snippets"))
-;;(yas-global-mode 1)
-;;(define-key yas-minor-mode-map [(tab)] nil)
-;;(define-key yas-minor-mode-map (kbd "TAB") nil)
-;;(define-key yas-minor-mode-map (kbd "<tab>") nil)
-;;(define-key yas-keymap [(tab)] nil)
-;;(define-key yas-keymap (kbd "TAB") nil)
 
 
 (show-paren-mode 1)
@@ -165,6 +156,19 @@
 (global-linum-mode t)
 (setq linum-format "%d ")
 (setq inhibit-startup-message t)
-;(add-hook 'python-mode-hook 'jedi:setup)
-;(setq jedi:complete-on-dot t)
+
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:complete-on-dot t)
+
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.snippets/"))
+(yas-global-mode 1)
+
+;(define-key yas-minor-mode-map [(tab)] nil)
+(define-key yas-minor-mode-map (kbd "TAB") 'yas/expand)
+(define-key yas-minor-mode-map (kbd "<tab>") 'yas/expand)
+;(define-key yas-keymap [(tab)] nil)
+;(define-key yas-keymap (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "SPC") 'yas/expand)
 
