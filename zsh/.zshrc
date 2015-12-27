@@ -66,4 +66,5 @@ alias gap='git add -p'
 alias gco='git checkout'
 alias gr='git review'
 alias gucf='git reset HEAD^'
+alias gpom='git push origin master'
 alias readlink=greadlink
