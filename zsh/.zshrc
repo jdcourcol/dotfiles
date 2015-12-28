@@ -38,13 +38,19 @@ source $ZSH/oh-my-zsh.sh
 #PROMPT='%{$fg[cyan]%}%B%m %{$reset_color%}%~%b%{$fg_bold[blue]%} $(git_super_status)%{$fg_bold[blue]%} % %{$reset_color%} %# '
 #PROMPT='%{$fg[cyan]%}%B%d %{$reset_color%}'
 # Customize to your needs...
-export PATH=/home/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/opt/coreutils/libexec/gnubin
+
+unamestr=`uname`
+
+if [[ "$unamestr" != "Darwin" ]]; then
+export PATH=/home/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:
+else
+export PATH=/Users/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/opt/coreutils/libexec/gnubin
+fi
 
 va () {
    source `find . -name activate`
 }
 
-unamestr=`uname`
 
 if [[ "$unamestr" != "darwin" ]]; then
     alias pbcopy='xclip -selection clipboard'
