@@ -168,11 +168,3 @@
 (setq yas-snippet-dirs
       '("~/.snippets/"))
 (yas-global-mode 1)
-
-;(define-key yas-minor-mode-map [(tab)] nil)
-;(define-key yas-minor-mode-map (kbd "TAB") 'yas/expand)
-;(define-key yas-minor-mode-map (kbd "<tab>") 'yas/expand)
-;(define-key yas-keymap [(tab)] nil)
-;(define-key yas-keymap (kbd "TAB") nil)
-;(define-key yas-minor-mode-map (kbd "SPC") 'yas/expand)
-
