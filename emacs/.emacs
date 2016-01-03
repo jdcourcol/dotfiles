@@ -147,12 +147,15 @@
 (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
 (global-set-key [remap execute-extended-command] 'smex)
 
-;;(setq interprogram-cut-function
-;;      (lambda (text &optional push)
-;;    (let* ((process-connection-type nil)
-;;           (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
-;;      (process-send-string pbproxy text)
-;;      (process-send-eof pbproxy))))
+( if (eq system-type 'darwin)
+    (setq interprogram-cut-function
+    (lambda (text &optional push)
+    (let* ((process-connection-type nil)
+           (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
+      (process-send-string pbproxy text)
+      (process-send-eof pbproxy))))
+  )
+
 (load-theme 'zenburn t)
 (global-linum-mode t)
 (setq linum-format "%d ")
@@ -161,7 +164,7 @@
 ;;(add-hook 'python-mode-hook 'jedi:setup)
 ;;(setq jedi:complete-on-dot t)
 
-(require 'yasnippet)
+(maybe-require-package 'yasnippet)
 (setq yas-snippet-dirs
       '("~/.snippets/"))
 (yas-global-mode 1)
