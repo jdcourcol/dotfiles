@@ -15,7 +15,9 @@
 (setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (menu-bar-mode -1)
-
+(autoload 'linum-mode "linum" "toggle line numbers on/off" t)
+(global-set-key [f7] 'linum-mode)
+(setq linum-format "%d ")
 
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
@@ -41,20 +43,6 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 
-(defvar ack-history nil
-  "History for the `ack' command.")
-
-(defun ack (command-args)
-  (interactive
-   (let ((ack-command "ack --nogroup --with-filename --all "))
-     (list (read-shell-command "Run ack (like this): "
-                               ack-command
-                               'ack-history))))
-  (let ((compilation-disable-input t))
-    (compilation-start (concat command-args " < " null-device)
-                       'grep-mode)))
-
-(global-set-key [f7] 'ack)
 (add-to-list 'load-path "/home/courcol/.emacs.d/")
 ;;(require 'edit-server)
 ;;(edit-server-start)
@@ -157,8 +145,8 @@
   )
 
 (load-theme 'zenburn t)
-(global-linum-mode t)
-(setq linum-format "%d ")
+
+
 (setq inhibit-startup-message t)
 
 ;;(add-hook 'python-mode-hook 'jedi:setup)
