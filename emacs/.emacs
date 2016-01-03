@@ -18,6 +18,7 @@
 (autoload 'linum-mode "linum" "toggle line numbers on/off" t)
 (global-set-key [f7] 'linum-mode)
 (setq linum-format "%d ")
+(setq vc-follow-symlinks t)
 
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
