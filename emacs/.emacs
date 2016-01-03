@@ -44,7 +44,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 
-(add-to-list 'load-path "/home/courcol/.emacs.d/")
+;;(add-to-list 'load-path "/home/courcol/.emacs.d/")
 ;;(require 'edit-server)
 ;;(edit-server-start)
 
