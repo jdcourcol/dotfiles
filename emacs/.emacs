@@ -164,7 +164,7 @@
 ;;(add-hook 'python-mode-hook 'jedi:setup)
 ;;(setq jedi:complete-on-dot t)
 
-(maybe-require-package 'yasnippet)
+(require 'yasnippet)
 (setq yas-snippet-dirs
       '("~/.snippets/"))
 (yas-global-mode 1)
