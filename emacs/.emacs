@@ -177,3 +177,6 @@
  ;; If there is more than one, they won't work right.
  '(js2-error ((t (:foreground "red" :weight bold))))
  '(js2-external-variable ((t (:foreground "red")))))
+
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
