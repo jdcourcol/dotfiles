@@ -157,3 +157,23 @@
 (setq yas-snippet-dirs
       '("~/.snippets/"))
 (yas-global-mode 1)
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js-mode-hook #'jscs-indent-apply)
+(add-hook 'js2-mode-hook #'jscs-indent-apply)
+(add-hook 'json-mode-hook #'jscs-indent-apply)
+(add-hook 'js-mode-hook #'jscs-fix-run-before-save)
+(add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-error ((t (:foreground "red" :weight bold))))
+ '(js2-external-variable ((t (:foreground "red")))))
