@@ -73,4 +73,5 @@ alias gco='git checkout'
 alias gr='git review'
 alias gucf='git reset HEAD^'
 alias gpom='git push origin master'
+alias gcas='git commit --amend --no-edit'
 alias readlink=greadlink
