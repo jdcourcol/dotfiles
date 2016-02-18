@@ -19,6 +19,11 @@
 (global-set-key [f7] 'linum-mode)
 (setq linum-format "%d ")
 (setq vc-follow-symlinks t)
+(setq create-lockfiles nil)
+(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+(setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix emacs-tmp-dir)
 
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
