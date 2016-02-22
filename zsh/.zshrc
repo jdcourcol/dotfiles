@@ -57,6 +57,10 @@ if [[ "$unamestr" != "darwin" ]]; then
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
+# iterm2 shell integration
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
+
 viz(){
  klist || kinit
  ssh -Yt bbplxviz1.epfl.ch $'salloc -n1 -p interactive /bin/bash -c \' ssh -Y `srun -p interactive hostname`\' '
