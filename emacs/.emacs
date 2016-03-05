@@ -24,6 +24,7 @@
 (setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)
+(global-set-key "\C-cy" 'browse-kill-ring)
 
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
