@@ -69,6 +69,7 @@ viz(){
 
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
+alias tk='tmux kill-session -t'
 alias em='set +m; env TERM=xterm-256color emacs -nw'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
