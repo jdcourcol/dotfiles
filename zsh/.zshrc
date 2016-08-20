@@ -80,3 +80,6 @@ alias gucf='git reset HEAD^'
 alias gpom='git push origin master'
 alias gcas='git commit --amend --no-edit'
 alias readlink=greadlink
+alias pipi='pip install -i http://localhost:3141/root/pypi'
+
+
