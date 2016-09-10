@@ -26,6 +26,7 @@
 (setq auto-save-list-file-prefix emacs-tmp-dir)
 (global-set-key "\C-cy" 'browse-kill-ring)
 
+
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
     (interactive)
@@ -108,8 +109,6 @@
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-checker-init)))
 
-;; Set as a minor mode for Python
-(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 ;; Configure to wait a bit longer after edits before starting
 (setq-default flymake-no-changes-timeout '3)
 ;; dd
@@ -197,3 +196,6 @@
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
 (require 'desktop+)
+(elpy-enable)
+;; Set as a minor mode for Python
+(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
