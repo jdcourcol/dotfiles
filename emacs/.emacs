@@ -196,6 +196,8 @@
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
 (require 'desktop+)
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "--simple-prompt --pprint")
 (elpy-enable)
-;; Set as a minor mode for Python
+;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
