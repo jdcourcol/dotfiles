@@ -1,10 +1,10 @@
-(global-set-key [f4] 'goto-line)
 (global-set-key [f3] 'shell)
 ;;(global-set-key [f5] 'query-replace)
 ;;(global-set-key [f6] 'switch-to-buffer)
 (global-set-key [f6] 'rgrep)
 (global-set-key [f2] 'ido-switch-buffer)
 (global-set-key [f3] 'buffer-menu)
+(global-set-key [f4] 'ido-find-file)
 (global-set-key [f8] 'dired)
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
@@ -67,7 +67,7 @@
 
 ;; web editing
 ;;(require 'web-mode)
-;;(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 
 ;;(add-to-list 'load-path
 ;;              "~/.emacs.d/plugins/yasnippet")
@@ -203,3 +203,5 @@
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 (js2-imenu-extras-mode)
 (winner-mode 1)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
