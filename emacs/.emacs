@@ -201,3 +201,5 @@
 (elpy-enable)
 ;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
+(js2-imenu-extras-mode)
+(winner-mode 1)
