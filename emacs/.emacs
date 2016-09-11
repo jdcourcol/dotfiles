@@ -1,11 +1,15 @@
-(global-set-key [f3] 'shell)
-;;(global-set-key [f5] 'query-replace)
-;;(global-set-key [f6] 'switch-to-buffer)
-(global-set-key [f6] 'rgrep)
+(global-set-key [f1] 'dired)
 (global-set-key [f2] 'ido-switch-buffer)
 (global-set-key [f3] 'buffer-menu)
 (global-set-key [f4] 'ido-find-file)
-(global-set-key [f8] 'dired)
+(defun revert-buffer-no-confirm ()
+      "Revert buffer without confirmation."
+      (interactive) (revert-buffer t t))
+(global-set-key [f5] 'revert-buffer-no-confirm)
+(global-set-key [f6] 'rgrep)
+(global-set-key [f7] 'linum-mode)
+
+
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
@@ -16,8 +20,8 @@
 (setq-default indent-tabs-mode nil)
 (menu-bar-mode -1)
 (autoload 'linum-mode "linum" "toggle line numbers on/off" t)
-(global-set-key [f7] 'linum-mode)
 (setq linum-format "%d ")
+
 (setq vc-follow-symlinks t)
 (setq create-lockfiles nil)
 (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
@@ -37,10 +41,6 @@
         (comment-or-uncomment-region beg end)))
 (global-set-key [f6] 'comment-or-uncomment-region-or-line)
 
-(defun revert-buffer-no-confirm ()
-      "Revert buffer without confirmation."
-      (interactive) (revert-buffer t t))
-(global-set-key [f5] 'revert-buffer-no-confirm)
 ;;to set foreground color to white
 (set-foreground-color "white")
 
