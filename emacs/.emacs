@@ -1,4 +1,3 @@
-(global-set-key [f1] 'dired)
 (global-set-key [f2] 'ido-switch-buffer)
 (global-set-key [f3] 'buffer-menu)
 (global-set-key [f4] 'ido-find-file)
@@ -8,7 +7,7 @@
 (global-set-key [f5] 'revert-buffer-no-confirm)
 (global-set-key [f6] 'rgrep)
 (global-set-key [f7] 'linum-mode)
-
+(global-set-key [f8] 'dired)
 
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
