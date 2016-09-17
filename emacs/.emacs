@@ -218,14 +218,14 @@
 (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
 (global-set-key [remap execute-extended-command] 'smex)
 
-( if (eq system-type 'darwin)
-    (setq interprogram-cut-function
-    (lambda (text &optional push)
-    (let* ((process-connection-type nil)
-           (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
-      (process-send-string pbproxy text)
-      (process-send-eof pbproxy))))
-  )
+;; ( if (eq system-type 'darwin)
+;;     (setq interprogram-cut-function
+;;     (lambda (text &optional push)
+;;     (let* ((process-connection-type nil)
+;;            (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
+;;       (process-send-string pbproxy text)
+;;       (process-send-eof pbproxy))))
+;;   )
 
 (load-theme 'zenburn t)
 
@@ -251,12 +251,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-agenda-files (quote ("~/todo.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil))))
  '(js2-error ((t (:foreground "red" :weight bold))))
  '(js2-external-variable ((t (:foreground "red")))))
 

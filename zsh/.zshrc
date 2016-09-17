@@ -51,12 +51,6 @@ va () {
    source `find . -name activate`
 }
 
-
-if [[ "$unamestr" != "darwin" ]]; then
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-fi
-
 # iterm2 shell integration
 source ~/.iterm2_shell_integration.`basename $SHELL`
 
