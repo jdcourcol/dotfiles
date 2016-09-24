@@ -30,7 +30,7 @@ ZSH_THEME="jdc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-prompt copybuffer)
+plugins=(git-prompt copybuffer fasd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,5 +75,5 @@ alias gpom='git push origin master'
 alias gcas='git commit --amend --no-edit'
 alias readlink=greadlink
 alias pipi='pip install -i http://localhost:3141/root/pypi'
-
+alias v='set +m; env TERM=xterm-256colors f -e "emacs -nw" '
 
