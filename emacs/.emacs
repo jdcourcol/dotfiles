@@ -96,6 +96,7 @@
   'bash-completion-dynamic-complete)
 (add-hook 'shell-command-complete-functions
   'bash-completion-dynamic-complete)
+
 ;; Configure flymake for Python
 (when (load "flymake" t)
   (defun flymake-checker-init ()
@@ -132,6 +133,7 @@
 (ad-activate 'flymake-post-syntax-check)
 
 (setq-default show-trailing-whitespace t)
+
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
 
@@ -181,32 +183,6 @@
 
 (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
 
-;; (defun copy-to-clipboard ()
-;;   (interactive)
-;;   (if (display-graphic-p)
-;;       (progn
-;;         (message "Yanked region to x-clipboard!")
-;;         (call-interactively 'clipboard-kill-ring-save)
-;;         )
-;;     (if (region-active-p)
-;;         (progn
-;;           (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-;;           (message "Yanked region to clipboard!")
-;;           (deactivate-mark))
-;;       (message "No region active; can't yank to clipboard!")))
-;;   )
-
-;; (defun paste-from-clipboard ()
-;;   (interactive)
-;;   (if (display-graphic-p)
-;;       (progn
-;;         (clipboard-yank)
-;;         (message "graphics active")
-;;         )
-;;     (insert (shell-command-to-string "xsel -o -b"))
-;;     )
-;;   )
-
 (global-set-key [f9] 'copy-to-clipboard)
 (global-set-key [f10] 'paste-from-clipboard)
 
@@ -228,12 +204,7 @@
 ;;   )
 
 (load-theme 'zenburn t)
-
-
 (setq inhibit-startup-message t)
-
-;;(add-hook 'python-mode-hook 'jedi:setup)
-;;(setq jedi:complete-on-dot t)
 
 (require 'yasnippet)
 (setq yas-snippet-dirs
@@ -263,10 +234,13 @@
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
+
 (require 'desktop+)
+
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt --pprint")
 (elpy-enable)
+
 ;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 (js2-imenu-extras-mode)
@@ -283,7 +257,10 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-  (require 'use-package)
+(require 'use-package)
+(require 'undo-tree)
+(global-undo-tree-mode 1)
+
 ;; (use-package etags
 ;;              :init (setq tags-revert-without-query 1))
 ;; (use-package ctags-update
