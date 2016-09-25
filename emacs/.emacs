@@ -1,5 +1,5 @@
 (global-set-key [f2] 'ido-switch-buffer)
-(global-set-key [f3] 'buffer-menu)
+(global-set-key [f3] 'ibuffer)
 (global-set-key [f4] 'ido-find-file)
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
@@ -277,3 +277,18 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-x SPC") 'fasd-find-file)
 (global-fasd-mode 1)
+(setq initial-scratch-message "")
+(setq visible-bell t)
+(fset 'yes-or-no-p 'y-or-n-p)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+  (require 'use-package)
+;; (use-package etags
+;;              :init (setq tags-revert-without-query 1))
+;; (use-package ctags-update
+;;   :ensure t
+;;   :config
+;;   (add-hook 'prog-mode-hook  'turn-on-ctags-auto-update-mode)
+;;   :diminish ctags-auto-update-mode)
+;; (setq tags-table-list '("~/.tags/TAGS"))
