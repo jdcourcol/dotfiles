@@ -262,7 +262,7 @@
 (global-undo-tree-mode 1)
 
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-z") 'er/expand-region)
 
 ;; (use-package etags
 ;;              :init (setq tags-revert-without-query 1))
