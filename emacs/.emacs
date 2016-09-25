@@ -261,6 +261,9 @@
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; (use-package etags
 ;;              :init (setq tags-revert-without-query 1))
 ;; (use-package ctags-update
