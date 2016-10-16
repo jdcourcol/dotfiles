@@ -60,6 +60,31 @@ viz(){
  ssh -Yt bbplxviz1.epfl.ch $'salloc -n1 -p interactive /bin/bash -c \' ssh -Y `srun -p interactive hostname`\' '
 }
 
+# W: whole file (no delta)
+# a archive
+# P: show progress keep partially transfered files
+# v: verbose
+# human-readable : output number in human readable format
+
+cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
+
+gifify() {
+  if [[ -n "$1" ]]; then
+if [[ $2 == '--good' ]]; then
+  ffmpeg -i "$1" -r 10 -vcodec png out-static-%05d.png
+  time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > "$1.gif"
+  rm out-static*.png
+else
+  ffmpeg -i "$1" -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > "$1.gif"
+fi
+  else
+echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
+  fi
+}
+
+
 
 alias ta='tmux -2 attach -t'
 alias tn='tmux -2 new-session -s'
@@ -77,3 +102,12 @@ alias readlink=greadlink
 alias pipi='pip install -i http://localhost:3141/root/pypi'
 alias v='set +m; env TERM=xterm-256colors f -e "emacs -nw" '
 
+export HISTCONTROL=ignoredups
+
+# Increase the maximum number of lines contained in the history file
+# (default is 500)
+export HISTFILESIZE=100000
+
+# Increase the maximum number of commands to remember
+# (default is 500)
+export HISTSIZE=100000
