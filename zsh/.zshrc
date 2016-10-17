@@ -47,6 +47,16 @@ else
 export PATH=/Users/courcol/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/opt/coreutils/libexec/gnubin
 fi
 
+
+lock(){
+    if [[ "$unamestr" != "Darwin" ]]; then
+        xscreensaver-command -lock
+    else
+        echo "not implemented"
+    fi
+}
+
+
 va () {
    source `find . -name activate`
 }
