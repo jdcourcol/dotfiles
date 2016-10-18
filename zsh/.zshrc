@@ -52,7 +52,7 @@ lock(){
     if [[ "$unamestr" != "Darwin" ]]; then
         xscreensaver-command -lock
     else
-        echo "not implemented"
+        pmset displaysleepnow
     fi
 }
 
