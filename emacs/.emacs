@@ -53,7 +53,6 @@
 (global-set-key "\M-[1;5D"    'backward-word) ; Ctrl+left    => backward word
 
 
-
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
     (interactive)
@@ -66,14 +65,6 @@
 
 ;; find file at point. ~ vi gf
 (ffap-bindings)
-
-;;; Shell mode
-(setq ansi-color-names-vector ; better contrast colors
-      ["black" "red4" "green4" "yellow4"
-       "green2" "magenta4" "cyan4" "white"])
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-(setq comint-prompt-read-only t)
-
 
 (show-paren-mode 1)
 (global-set-key "%" 'match-paren)
