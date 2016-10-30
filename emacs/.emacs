@@ -5,6 +5,9 @@
 
 (package-initialize)
 
+;;(require 'benchmark-init)
+;;(benchmark-init/activate)
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -83,27 +86,24 @@
 (add-hook 'shell-command-complete-functions
   'bash-completion-dynamic-complete)
 
-;; Configure flymake for Python
-(when (load "flymake" t)
-  (defun flymake-checker-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "emacs_checker.sh" (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-checker-init)))
-
-;; Configure to wait a bit longer after edits before starting
-(setq-default flymake-no-changes-timeout '3)
-;; dd
-;; Keymaps to navigate to the errors
-(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cn" 'flymake-goto-next-error)))
-(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cp" 'flymake-goto-prev-error)))
-;; To avoid having to mouse hover for the error message, these functions make flymake error messages
-;; appear in the minibuffer
-(defun show-fly-err-at-point ()
+(use-package flymake
+  :ensure t
+  :defer t
+  :config
+  ;; Configure flymake for Python
+  (when (load "flymake" t)
+    (defun flymake-checker-init ()
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                         'flymake-create-temp-inplace))
+             (local-file (file-relative-name
+                          temp-file
+                          (file-name-directory buffer-file-name))))
+        (list "emacs_checker.sh" (list local-file))))
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("\\.py\\'" flymake-checker-init)))
+  ;; Configure to wait a bit longer after edits before starting
+  (setq-default flymake-no-changes-timeout '3)
+  (defun show-fly-err-at-point ()
   "If the cursor is sitting on a flymake error, display the message in the minibuffer"
   (require 'cl)
   (interactive)
@@ -113,17 +113,22 @@
       (let ((err (car (second elem))))
         (message "%s" (flymake-ler-text err)))))))
 
-(add-hook 'post-command-hook 'show-fly-err-at-point)
-(defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
+  (add-hook 'post-command-hook 'show-fly-err-at-point)
+  (defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
     (setq flymake-check-was-interrupted t))
-(ad-activate 'flymake-post-syntax-check)
+  (ad-activate 'flymake-post-syntax-check)
+  )
+
+;; Keymaps to navigate to the errors
+(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cn" 'flymake-goto-next-error)))
+(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cp" 'flymake-goto-prev-error)))
+;; To avoid having to mouse hover for the error message, these functions make flymake error messages
+;; appear in the minibuffer
 
 
 
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
-
-
 
 (setq *is-a-mac* (eq system-type 'darwin))
 (setq *cygwin* (eq system-type 'cygwin) )
@@ -166,33 +171,44 @@
 (global-set-key [f9] 'copy-to-clipboard)
 (global-set-key [f10] 'paste-from-clipboard)
 
-(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
-(global-set-key [remap execute-extended-command] 'smex)
+(use-package smex
+  :init (smex-initialize)
+  :defer t
+  :config
+  (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
+  (global-set-key [remap execute-extended-command] 'smex)
+  )
 
 (load-theme 'zenburn t)
 
+(use-package js2-mode
+  :ensure t
+  :defer t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-hook 'js2-mode-hook #'jscs-indent-apply)
+  (add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
+  (js2-imenu-extras-mode)
+  (add-hook 'js-mode-hook #'jscs-indent-apply)
+  (add-hook 'json-mode-hook #'jscs-indent-apply)
+  (add-hook 'js-mode-hook #'jscs-fix-run-before-save)
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(default ((t (:background nil))))
+   '(js2-error ((t (:foreground "red" :weight bold))))
+   '(js2-external-variable ((t (:foreground "red")))))
+  )
 
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js-mode-hook #'jscs-indent-apply)
-(add-hook 'js2-mode-hook #'jscs-indent-apply)
-(add-hook 'json-mode-hook #'jscs-indent-apply)
-(add-hook 'js-mode-hook #'jscs-fix-run-before-save)
-(add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files (quote ("~/todo.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(js2-error ((t (:foreground "red" :weight bold))))
- '(js2-external-variable ((t (:foreground "red")))))
 
 
 (setq python-shell-interpreter "ipython"
@@ -201,7 +217,6 @@
 
 ;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
-(js2-imenu-extras-mode)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
@@ -219,6 +234,7 @@
 
 (use-package yasnippet
   :ensure t
+  :defer t
   :config
   (setq yas-snippet-dirs
         '("~/.snippets/"))
@@ -272,3 +288,4 @@
   (and (>= emacs-major-version 23)
        (defun server-ensure-safe-dir (dir) "Noop" t))
   )
+;;(benchmark-init/show-durations-tree)
