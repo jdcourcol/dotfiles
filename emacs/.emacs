@@ -17,6 +17,10 @@
   (global-set-key [f2] 'ido-switch-buffer)
   (global-set-key [f3] 'ibuffer)
   (global-set-key [f4] 'ido-find-file)
+  (ido-mode 1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+
 )
 
 (defun revert-buffer-no-confirm ()
@@ -77,17 +81,6 @@
        "green2" "magenta4" "cyan4" "white"])
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
-
-;;(add-to-list 'load-path "/home/courcol/.emacs.d/")
-;;(require 'edit-server)
-;;(edit-server-start)
-
-;; web editing
-;;(require 'web-mode)
-
-
-;;(add-to-list 'load-path
-;;              "~/.emacs.d/plugins/yasnippet")
 
 
 (show-paren-mode 1)
@@ -155,8 +148,11 @@
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
 
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+  )
 
 
 ;;(setq x-select-enable-clipboard t)
@@ -204,30 +200,19 @@
 (global-set-key [f9] 'copy-to-clipboard)
 (global-set-key [f10] 'paste-from-clipboard)
 
-(require `ido)
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-
 (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
 (global-set-key [remap execute-extended-command] 'smex)
-
-;; ( if (eq system-type 'darwin)
-;;     (setq interprogram-cut-function
-;;     (lambda (text &optional push)
-;;     (let* ((process-connection-type nil)
-;;            (pbproxy (start-process "pbcopy" "pbcopy" "pbcopy")))
-;;       (process-send-string pbproxy text)
-;;       (process-send-eof pbproxy))))
-;;   )
 
 (load-theme 'zenburn t)
 (setq inhibit-startup-message t)
 
-(require 'yasnippet)
-(setq yas-snippet-dirs
-      '("~/.snippets/"))
-(yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :config
+  (setq yas-snippet-dirs
+        '("~/.snippets/"))
+  (yas-global-mode 1)
+  )
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js-mode-hook #'jscs-indent-apply)
@@ -253,7 +238,9 @@
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
 
-(require 'desktop+)
+(use-package desktop+
+  :ensure t
+  )
 
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt --pprint")
@@ -265,31 +252,34 @@
 (winner-mode 1)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
-(require 'ace-jump-mode)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x SPC") 'fasd-find-file)
-(global-fasd-mode 1)
+(use-package ace-jump-mode
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+  (global-set-key (kbd "C-x SPC") 'fasd-find-file)
+  (global-fasd-mode 1)
+  )
 (setq initial-scratch-message "")
 (setq visible-bell t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(require 'use-package)
-(require 'undo-tree)
-(global-undo-tree-mode 1)
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1)
+  )
 
-(require 'expand-region)
-(global-set-key (kbd "C-z") 'er/expand-region)
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-z") 'er/expand-region)
+  )
 
-;; (use-package etags
-;;              :init (setq tags-revert-without-query 1))
-;; (use-package ctags-update
-;;   :ensure t
-;;   :config
-;;   (add-hook 'prog-mode-hook  'turn-on-ctags-auto-update-mode)
-;;   :diminish ctags-auto-update-mode)
-;; (setq tags-table-list '("~/.tags/TAGS"))
-(require 'server)
- (and (>= emacs-major-version 23)
-     (defun server-ensure-safe-dir (dir) "Noop" t))
+(use-package server
+  :ensure t
+  :config
+  (and (>= emacs-major-version 23)
+       (defun server-ensure-safe-dir (dir) "Noop" t))
+  )
