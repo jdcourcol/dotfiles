@@ -20,7 +20,6 @@
   (ido-mode 1)
   (setq ido-enable-flex-matching t)
   (setq ido-everywhere t)
-
 )
 
 (setq use-package-verbose t)
@@ -29,7 +28,6 @@
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
 (global-set-key [f5] 'revert-buffer-no-confirm)
-(global-set-key [f6] 'comment-or-uncomment-region-or-line)
 (global-set-key [f7] 'linum-mode)
 (global-set-key [f8] 'dired)
 
@@ -49,13 +47,9 @@
 (setq initial-scratch-message "")
 (setq visible-bell t)
 (fset 'yes-or-no-p 'y-or-n-p)
-
+(winner-mode 1)
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
-
-
-(autoload 'linum-mode "linum" "toggle line numbers on/off" t)
-(setq linum-format "%d ")
 
 (setq vc-follow-symlinks t)
 (setq create-lockfiles nil)
@@ -64,6 +58,10 @@
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)
 (global-set-key "\C-cy" 'browse-kill-ring)
+;; tmux mangling
+(global-set-key "\M-[1;5C"    'forward-word)  ; Ctrl+right   => forward word
+(global-set-key "\M-[1;5D"    'backward-word) ; Ctrl+left    => backward word
+
 
 
 (defun comment-or-uncomment-region-or-line ()
@@ -74,14 +72,10 @@
             (setq beg (region-beginning) end (region-end))
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
+(global-set-key [f6] 'comment-or-uncomment-region-or-line)
 
 ;; find file at point. ~ vi gf
 (ffap-bindings)
-
-;; tmux mangling
-(global-set-key "\M-[1;5C"    'forward-word)  ; Ctrl+right   => forward word
-(global-set-key "\M-[1;5D"    'backward-word) ; Ctrl+left    => backward word
-
 
 ;;; Shell mode
 (setq ansi-color-names-vector ; better contrast colors
@@ -100,15 +94,7 @@
 	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
 	(t (self-insert-command (or arg 1)))))
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
-  (package-initialize))
-
-(autoload 'bash-completion-dynamic-complete 
+(autoload 'bash-completion-dynamic-complete
   "bash-completion"
   "BASH completion hook")
 (add-hook 'shell-dynamic-complete-functions
@@ -156,11 +142,6 @@
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
 
-(use-package yaml-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-  )
 
 
 (setq *is-a-mac* (eq system-type 'darwin))
@@ -201,7 +182,6 @@
   )
 
 (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
-
 (global-set-key [f9] 'copy-to-clipboard)
 (global-set-key [f10] 'paste-from-clipboard)
 
@@ -211,13 +191,6 @@
 (load-theme 'zenburn t)
 
 
-(use-package yasnippet
-  :ensure t
-  :config
-  (setq yas-snippet-dirs
-        '("~/.snippets/"))
-  (yas-global-mode 1)
-  )
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js-mode-hook #'jscs-indent-apply)
@@ -241,21 +214,42 @@
  '(js2-external-variable ((t (:foreground "red")))))
 
 
-(use-package desktop+
-  :ensure t
-  :defer t
-  )
-
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt --pprint")
 (elpy-enable)
 
+
+
 ;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 (js2-imenu-extras-mode)
-(winner-mode 1)
+
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+(use-package yasnippet
+  :ensure t
+  :config
+  (setq yas-snippet-dirs
+        '("~/.snippets/"))
+  (yas-global-mode 1)
+  )
+
+(use-package desktop+
+  :ensure t
+  :defer t
+  )
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+  )
+
+(use-package linum
+  :ensure t
+  :config
+  (autoload 'linum-mode "linum" "toggle line numbers on/off" t)
+  (setq linum-format "%d ")
+  )
 (use-package ace-jump-mode
   :ensure t
   :config
