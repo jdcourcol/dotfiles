@@ -11,16 +11,6 @@
     (package-install 'use-package))
 
 (require 'use-package)
-(use-package ido
-  :ensure t
-  :config
-  (global-set-key [f2] 'ido-switch-buffer)
-  (global-set-key [f3] 'ibuffer)
-  (global-set-key [f4] 'ido-find-file)
-  (ido-mode 1)
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-)
 
 (setq use-package-verbose t)
 
@@ -28,7 +18,7 @@
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
 (global-set-key [f5] 'revert-buffer-no-confirm)
-(global-set-key [f7] 'linum-mode)
+
 (global-set-key [f8] 'dired)
 
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -218,14 +208,24 @@
       python-shell-interpreter-args "--simple-prompt --pprint")
 (elpy-enable)
 
-
-
 ;; Set as a minor mode for Python (to be after elpy)
 (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 (js2-imenu-extras-mode)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+
+(use-package ido
+  :ensure t
+  :config
+  (global-set-key [f2] 'ido-switch-buffer)
+  (global-set-key [f3] 'ibuffer)
+  (global-set-key [f4] 'ido-find-file)
+  (ido-mode 1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+)
+
 (use-package yasnippet
   :ensure t
   :config
@@ -249,6 +249,7 @@
   :config
   (autoload 'linum-mode "linum" "toggle line numbers on/off" t)
   (setq linum-format "%d ")
+  (global-set-key [f7] 'linum-mode)
   )
 (use-package ace-jump-mode
   :ensure t
