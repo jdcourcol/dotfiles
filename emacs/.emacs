@@ -272,3 +272,6 @@
 ;;   (add-hook 'prog-mode-hook  'turn-on-ctags-auto-update-mode)
 ;;   :diminish ctags-auto-update-mode)
 ;; (setq tags-table-list '("~/.tags/TAGS"))
+(require 'server)
+ (and (>= emacs-major-version 23)
+     (defun server-ensure-safe-dir (dir) "Noop" t))
