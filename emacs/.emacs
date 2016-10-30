@@ -29,7 +29,7 @@
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
 (global-set-key [f5] 'revert-buffer-no-confirm)
-(global-set-key [f6] 'rgrep)
+(global-set-key [f6] 'comment-or-uncomment-region-or-line)
 (global-set-key [f7] 'linum-mode)
 (global-set-key [f8] 'dired)
 
@@ -37,11 +37,23 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
+
 (setq mac-command-key-is-meta t)
 (setq tab-width 4)
 (setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (menu-bar-mode -1)
+(setq transient-mark-mode t)
+(setq-default show-trailing-whitespace t)
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+(setq visible-bell t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
+
+
 (autoload 'linum-mode "linum" "toggle line numbers on/off" t)
 (setq linum-format "%d ")
 
@@ -62,10 +74,6 @@
             (setq beg (region-beginning) end (region-end))
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
-(global-set-key [f6] 'comment-or-uncomment-region-or-line)
-
-;;to set foreground color to white
-(set-foreground-color "white")
 
 ;; find file at point. ~ vi gf
 (ffap-bindings)
@@ -73,10 +81,8 @@
 ;; tmux mangling
 (global-set-key "\M-[1;5C"    'forward-word)  ; Ctrl+right   => forward word
 (global-set-key "\M-[1;5D"    'backward-word) ; Ctrl+left    => backward word
-;;to set background color to black
-(set-background-color "black")
 
-(setq transient-mark-mode t)
+
 ;;; Shell mode
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red4" "green4" "yellow4"
@@ -145,7 +151,7 @@
     (setq flymake-check-was-interrupted t))
 (ad-activate 'flymake-post-syntax-check)
 
-(setq-default show-trailing-whitespace t)
+
 
 (when (require 'browse-kill-ring nil 'noerror)
   (browse-kill-ring-default-keybindings))
@@ -157,9 +163,6 @@
   )
 
 
-;;(setq x-select-enable-clipboard t)
-;;(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-;;(xclip-mode 1)
 (setq *is-a-mac* (eq system-type 'darwin))
 (setq *cygwin* (eq system-type 'cygwin) )
 (setq *linux* (or (eq system-type 'gnu/linux) (eq system-type 'linux)) )
@@ -206,7 +209,7 @@
 (global-set-key [remap execute-extended-command] 'smex)
 
 (load-theme 'zenburn t)
-(setq inhibit-startup-message t)
+
 
 (use-package yasnippet
   :ensure t
@@ -237,8 +240,6 @@
  '(js2-error ((t (:foreground "red" :weight bold))))
  '(js2-external-variable ((t (:foreground "red")))))
 
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "#3e4446")
 
 (use-package desktop+
   :ensure t
@@ -262,12 +263,11 @@
   (global-set-key (kbd "C-x SPC") 'fasd-find-file)
   (global-fasd-mode 1)
   )
-(setq initial-scratch-message "")
-(setq visible-bell t)
-(fset 'yes-or-no-p 'y-or-n-p)
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 (use-package undo-tree
   :ensure t
   :config
