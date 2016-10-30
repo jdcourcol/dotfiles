@@ -1,6 +1,24 @@
-(global-set-key [f2] 'ido-switch-buffer)
-(global-set-key [f3] 'ibuffer)
-(global-set-key [f4] 'ido-find-file)
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+    (package-install 'use-package))
+
+(require 'use-package)
+(use-package ido
+  :ensure t
+  :config
+  (global-set-key [f2] 'ido-switch-buffer)
+  (global-set-key [f3] 'ibuffer)
+  (global-set-key [f4] 'ido-find-file)
+)
+
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
