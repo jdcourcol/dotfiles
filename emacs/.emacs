@@ -23,6 +23,8 @@
 
 )
 
+(setq use-package-verbose t)
+
 (defun revert-buffer-no-confirm ()
       "Revert buffer without confirmation."
       (interactive) (revert-buffer t t))
@@ -240,6 +242,7 @@
 
 (use-package desktop+
   :ensure t
+  :defer t
   )
 
 (setq python-shell-interpreter "ipython"
