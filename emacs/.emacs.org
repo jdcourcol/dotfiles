@@ -1,1 +1,37 @@
-help jdc
+* org-mode
+** visibility
+TAB	rotate current subtree between states
+S-TAB	rotate entire buffer between states
+C-u C-u TAB	restore property-dependent startup visibility
+C-u C-u C-u TAB	show the whole file, including drawers
+C-c C-r	reveal context around point
+** structure editing
+M-RET	insert new heading/item at current level
+C-RET	insert new heading after subtree
+M-S-RET	insert new TODO entry/checkbox item
+C-S-RET	insert TODO entry/ckbx after subtree
+C-c -	turn (head)line into item, cycle item type
+C-c *	turn item/line into headline
+M-LEFT/RIGHT	promote/demote heading
+M-S-LEFT/RIGHT	promote/demote current subtree
+M-S-UP/DOWN	move subtree/list item up/down
+C-c ^	sort subtree/region/plain-list
+C-c C-x c	clone a subtree
+C-c C-x v	copy visible text
+C-c C-x C-w/M-w	kill/copy subtree
+C-c C-x C-y or C-y	yank subtree
+C-x n s/w	narrow buffer to subtree / widen
+* functions
+F1 help
+F2 switch buffer
+F3 buffer
+F4 find file
+F5 revert buffer
+F6 comment uncomment
+F8 dired
+* ace-jump
+C-c a    jump mode
+C-x SPC  find file
+* expand region
+* others
+C-Cy browse kill ring
