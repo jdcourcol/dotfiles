@@ -28,6 +28,7 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
+(global-set-key (kbd "<f1>") (lambda() (interactive)(find-file "~/.emacs.org")))
 
 (setq mac-command-key-is-meta t)
 (setq tab-width 4)
@@ -289,3 +290,5 @@
        (defun server-ensure-safe-dir (dir) "Noop" t))
   )
 ;;(benchmark-init/show-durations-tree)
+
+(setq tramp-default-method "ssh")
