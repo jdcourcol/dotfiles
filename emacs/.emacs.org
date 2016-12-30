@@ -28,10 +28,14 @@ F3 buffer
 F4 find file
 F5 revert buffer
 F6 comment uncomment
+F7 linum mode
 F8 dired
+F9 copy to clipboard
+F10 paste from clipboard
 * ace-jump
 C-c a    jump mode
 C-x SPC  find file
 * expand region
 * others
 C-Cy browse kill ring
+C-z expand-region
