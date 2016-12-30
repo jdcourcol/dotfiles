@@ -36,6 +36,7 @@ F10 paste from clipboard
 C-c a    jump mode
 C-x SPC  find file
 * expand region
+C-z expand-region
 * others
 C-Cy browse kill ring
-C-z expand-region
+mc/mark-all-in-region multiple cursors
