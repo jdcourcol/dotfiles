@@ -40,3 +40,4 @@ C-z expand-region
 * others
 C-Cy browse kill ring
 mc/mark-all-in-region multiple cursors
+M-g j dumb jump go
