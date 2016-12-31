@@ -1,7 +1,7 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+         '("melpa" . "https://melpa.org/packages/"))
 
 (package-initialize)
 
@@ -76,8 +76,8 @@
   "Go to the matching paren if on a paren; otherwise insert %."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-	(t (self-insert-command (or arg 1)))))
+    ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+    (t (self-insert-command (or arg 1)))))
 
 (autoload 'bash-completion-dynamic-complete
   "bash-completion"
@@ -292,3 +292,8 @@
 ;;(benchmark-init/show-durations-tree)
 
 (setq tramp-default-method "ssh")
+
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go))
+  :ensure)
