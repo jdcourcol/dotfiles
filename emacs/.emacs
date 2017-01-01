@@ -223,6 +223,7 @@
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
 
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)) )
+(global-set-key "\C-cd" 'kill-whole-line)
 (use-package ido
   :ensure t
   :config
