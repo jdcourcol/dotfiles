@@ -43,3 +43,4 @@ mc/mark-all-in-region multiple cursors
 M-g j dumb jump go
 M-k delete line backward
 C-cd kill whole line
+C-x z repeat last command
