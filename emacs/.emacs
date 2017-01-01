@@ -222,12 +222,7 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
 
-(defun backward-kill-line (arg)
-"Kill ARG lines backward."
-(interactive "p")
-  (kill-line (- 1 arg)))
-(global-set-key "\C-cu" 'backward-kill-line) ;; `C-c u'
-
+(global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)) )
 (use-package ido
   :ensure t
   :config
