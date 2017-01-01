@@ -41,3 +41,4 @@ C-z expand-region
 C-Cy browse kill ring
 mc/mark-all-in-region multiple cursors
 M-g j dumb jump go
+C-c u delete line backward
