@@ -42,6 +42,10 @@
 (setq visible-bell t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (winner-mode 1)
+(setq display-time-day-and-date t
+      display-time-default-load-average nil
+      display-time-24hr-format nil)
+(display-time)
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
 
