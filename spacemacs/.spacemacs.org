@@ -1,0 +1,40 @@
+* Cursor
+| key     | description                        |
+|---------+------------------------------------|
+| h,i,j,k | move cursor                        |
+| H,M,L   | move top, middle, bottom of screen |
+| w,b     | jump forward backward word         |
+| 0,$     | jump beginning end of line         |
+| gg,G    | jump first, last line of document  |
+* edition
+** deletion
+| key    | description                                            |
+|--------+--------------------------------------------------------|
+| d0, d$ | delete from current position to beginning, end         |
+| dw, db | delete from current position to beginning, end of word |
+** copy/paste
+| key     | description         |
+|---------+---------------------|
+| y       | yank                |
+| d       | delete              |
+| p       | paste               |
+| SPC-r-y | helm show kill ring |
+** commenting
+| key   | description              |
+|-------+--------------------------|
+| SPC-; | toggle comment/uncomment |
+* Indent
+* orgmode
+** tree
+| key       | description        |
+|-----------+--------------------|
+| TAB       | cycle              |
+| g h,j,k,l | navigate header    |
+| t         | todo               |
+| T         | insert todo header |
+| O         | open above         |
+** table
+| key     | description           |
+|---------+-----------------------|
+| C-c C-c | realign table         |
+| S-Tab   | got to previous field |
