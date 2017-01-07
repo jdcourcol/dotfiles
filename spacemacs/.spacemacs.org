@@ -6,7 +6,9 @@
 | w,b     | jump forward backward word         |
 | 0,$     | jump beginning end of line         |
 | gg,G    | jump first, last line of document  |
+| :120    | go to line 120                     |
 * edition
+
 ** deletion
 | key    | description                                            |
 |--------+--------------------------------------------------------|
