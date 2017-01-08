@@ -8,7 +8,6 @@
 | gg,G    | jump first, last line of document  |
 | :120    | go to line 120                     |
 * edition
-
 ** deletion
 | key    | description                                            |
 |--------+--------------------------------------------------------|
@@ -40,3 +39,7 @@
 |---------+-----------------------|
 | C-c C-c | realign table         |
 | S-Tab   | got to previous field |
+* Configuration
+| key       | description       |
+|-----------+-------------------|
+| SPC f e R | reload .spacemacs |

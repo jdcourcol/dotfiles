@@ -41,6 +41,9 @@ values."
      ;; better-defaults
      emacs-lisp
      git
+     github
+     html
+     javascript
      ;; markdown
      org
      osx
@@ -307,6 +310,7 @@ you should place your code here."
         display-time-default-load-average nil
         display-time-24hr-format nil)
   (display-time)
+  (global-set-key (kbd "<f1>") (lambda() (interactive)(find-file "~/.spacemacs.org")))
   ) 
 
 ;; Do not write anything past this comment. This is where Emacs will
