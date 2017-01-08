@@ -40,6 +40,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
+     fasd
      git
      github
      html
@@ -311,7 +312,11 @@ you should place your code here."
         display-time-24hr-format nil)
   (display-time)
   (global-set-key (kbd "<f1>") (lambda() (interactive)(find-file "~/.spacemacs.org")))
-  ) 
+  (setq create-lockfiles nil)
+  (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+  (setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
+  (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
+  (setq auto-save-list-file-prefix emacs-tmp-dir))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

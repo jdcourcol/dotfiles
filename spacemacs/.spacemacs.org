@@ -7,7 +7,7 @@
 | 0,$     | jump beginning end of line         |
 | gg,G    | jump first, last line of document  |
 | :120    | go to line 120                     |
-* edition
+* Edition
 ** deletion
 | key    | description                                            |
 |--------+--------------------------------------------------------|
@@ -25,7 +25,7 @@
 |-------+--------------------------|
 | SPC-; | toggle comment/uncomment |
 * Indent
-* orgmode
+* Orgmode
 ** tree
 | key       | description        |
 |-----------+--------------------|
@@ -43,3 +43,18 @@
 | key       | description       |
 |-----------+-------------------|
 | SPC f e R | reload .spacemacs |
+* Jump
+** ffap
+| gf | go to file |
+** fasd
+| SPC f a f | find file with fasd |
+| SPC f a d | find directory with fasd |
+* Windows
+** split
+| key     | description         |
+|---------+---------------------|
+| C-x 2   | split horizontal    |
+| SPC w s | split horizontal    |
+| C-x 3   | split vertical      |
+| SPC w v | split vertical      |
+| SPC w . | window manipulation |
