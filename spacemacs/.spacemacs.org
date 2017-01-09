@@ -67,3 +67,8 @@
    | key     | description |
    |---------+-------------|
    | SPC f t | toggle      |
+* Helm/project
+| C-z     | help in helm         |
+| SPC-p-f | find file in project |
+| SPC /   | search in project    |
+| SPC s s | search in file       |
