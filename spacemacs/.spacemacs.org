@@ -9,10 +9,11 @@
 | :120    | go to line 120                     |
 * Edition
 ** deletion
-| key    | description                                            |
-|--------+--------------------------------------------------------|
-| d0, d$ | delete from current position to beginning, end         |
-| dw, db | delete from current position to beginning, end of word |
+| key       | description                                            |
+|-----------+--------------------------------------------------------|
+| d0, d$    | delete from current position to beginning, end         |
+| dw, db    | delete from current position to beginning, end of word |
+| SPC x d w | delete whitespaces                                     |
 ** copy/paste
 | key     | description         |
 |---------+---------------------|
