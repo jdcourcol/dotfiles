@@ -24,6 +24,10 @@
 | key   | description              |
 |-------+--------------------------|
 | SPC-; | toggle comment/uncomment |
+** selection
+| key  | description |
+|------+-------------|
+| ggVG | select all  |
 * Indent
 * Orgmode
 ** tree
@@ -58,3 +62,7 @@
 | C-x 3   | split vertical      |
 | SPC w v | split vertical      |
 | SPC w . | window manipulation |
+** neotree
+   | key     | description |
+   |---------+-------------|
+   | SPC f t | toggle      |
