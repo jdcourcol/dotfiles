@@ -29,6 +29,11 @@
 | key  | description |
 |------+-------------|
 | ggVG | select all  |
+** undo 
+| key   | description |
+|-------+-------------|
+| SPC-u | undo tree   |
+| d     | show diff   |
 * Indent
 * Orgmode
 ** tree
