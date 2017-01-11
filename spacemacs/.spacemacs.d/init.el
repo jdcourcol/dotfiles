@@ -48,6 +48,7 @@ values."
      javascript
      ;; markdown
      org
+     (org :variables org-enable-reveal-js-support t)
      osx
      shell-scripts
      tmux
@@ -63,7 +64,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      dumb-jump
+                                      dumb-jump,
+                                      ox-reveal
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -302,6 +304,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; TODO this raises a warning. 
   ;; avy-all-windows 'all-frames
+  (setq org-reveal-root "file:///Users/courcol/tools/reveal.js")
   )
 
 (defun dotspacemacs/user-config ()

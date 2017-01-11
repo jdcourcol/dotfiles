@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: script
+# key: script
+# --
+#!/usr/bin/env python
+#!/usr/bin/env python
+''' '''
+import argparse
+
+
+def main(args):
+    ''' main '''
+    pass
+
+
+def get_parser():
+    ''' return argparse parser '''
+    parser = argparse.ArgumentParser(description='todo')
+    parser.add_argument('-i', dest='input_path', required=True,
+                        help='a path to a file')
+    parser.add_argument('-o', dest='output_path', required=True,
+                        help='a path to a file')
+    return parser
+
+
+if __name__ == '__main__':
+    PARSER = get_parser()
+    main(PARSER.parse_args())
