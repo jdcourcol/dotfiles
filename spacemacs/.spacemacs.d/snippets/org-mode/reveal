@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: reveal 
+# key: reveal
+# --
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+TITLE:
+#+AUTHOR:
+#+OPTIONS: reveal_slide_number:nil date:nil toc:nil num:nil
+#+HTML_HEAD_EXTRA: <style>p.date {display: None;}</style>
+#+REVEAL_THEME: black
+#+REVEAL_PLUGINS: (highlight)
