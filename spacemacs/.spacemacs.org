@@ -7,6 +7,7 @@
 | 0,$     | jump beginning end of line         |
 | gg,G    | jump first, last line of document  |
 | :120    | go to line 120                     |
+| `.      | go to the last edited line         |
 * Edition
 ** deletion
 | key       | description                                            |
@@ -34,6 +35,10 @@
 |-------+-------------|
 | SPC-u | undo tree   |
 | d     | show diff   |
+** insertion
+| o | new line under        |
+| O | new line above        |
+| A | insert at end of line |
 * Indent
 * Orgmode
 ** tree
@@ -56,7 +61,6 @@
 * Jump
 ** ffap
 | gf | go to file |
-|    |            |
 ** fasd
 | SPC f a f | find file with fasd |
 | SPC f a d | find directory with fasd |
