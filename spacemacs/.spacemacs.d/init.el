@@ -46,6 +46,7 @@ values."
      github
      html
      javascript
+     ipython-notebook
      ;; markdown
      org
      (org :variables org-enable-reveal-js-support t)
@@ -330,6 +331,10 @@ you should place your code here."
   (define-key yas-minor-mode-map (kbd "TAB") nil)
   (define-key yas-minor-mode-map (kbd "<M-tab>") 'yas-expand)
   (setq powerline-default-separator 'alternate)
+  (defun run-python-once ()
+    (remove-hook 'python-mode-hook 'run-python-once)
+    (run-python (python-shell-parse-command)))
+  (add-hook 'python-mode-hook 'run-python-once)
   )
 
 
