@@ -51,7 +51,6 @@ values."
      org
      (org :variables org-enable-reveal-js-support t)
      osx
-     shell-scripts
      ranger
      tmux
      ;; (shell :variables
@@ -67,7 +66,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       dumb-jump,
-                                      ox-reveal
+                                      ox-reveal,
+                                      cl
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -335,8 +335,35 @@ you should place your code here."
     (remove-hook 'python-mode-hook 'run-python-once)
     (run-python (python-shell-parse-command)))
   (add-hook 'python-mode-hook 'run-python-once)
-  )
+   ;; Configure flymake for Python
+    (when (load "flymake" t)
+      (defun flymake-checker-init ()
+        (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                           'flymake-create-temp-inplace))
+               (local-file (file-relative-name
+                            temp-file
+                            (file-name-directory buffer-file-name))))
+    (list "emacs_checker.sh" (list local-file))))
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("\\.py\\'" flymake-checker-init)))
+    ;; Configure to wait a bit longer after edits before starting
+    (setq-default flymake-no-changes-timeout '3)
+    (defun show-fly-err-at-point ()
+      "If the cursor is sitting on a flymake error, display the message in the minibuffer"
+      (require 'cl)
+      (interactive)
+      (let ((line-no (line-number-at-pos)))
+        (dolist (elem flymake-err-info)
+          (if (eq (car elem) line-no)
+              (let ((err (car (second elem))))
+                (message "%s" (flymake-ler-text err)))))))
 
+  (add-hook 'post-command-hook 'show-fly-err-at-point)
+  (defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
+    (setq flymake-check-was-interrupted t))
+  (ad-activate 'flymake-post-syntax-check)
+ (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
