@@ -39,6 +39,9 @@
 | o | new line under        |
 | O | new line above        |
 | A | insert at end of line |
+** search/replace
+| :%s/\(aaa\)(print)/\2\1/g | group |
+|                           |       |
 * Indent
 * Orgmode
 ** tree
