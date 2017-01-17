@@ -8,6 +8,10 @@
 | gg,G    | jump first, last line of document  |
 | :120    | go to line 120                     |
 | `.      | go to the last edited line         |
+| C-u,d   | go up, down one screen             |
+| zz      | place current line in the middle   |
+| zb      | place current line in the bottom   |
+|         |                                    |
 * Edition
 ** deletion
 | key       | description                                            |
@@ -27,9 +31,10 @@
 |-------+--------------------------|
 | SPC-; | toggle comment/uncomment |
 ** selection
-| key  | description |
-|------+-------------|
-| ggVG | select all  |
+| key     | description         |
+|---------+---------------------|
+| ggVG    | select all          |
+| SPC s e | iEdit (multicursor) |
 ** undo 
 | key   | description |
 |-------+-------------|
