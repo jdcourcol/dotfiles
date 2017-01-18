@@ -307,6 +307,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; TODO this raises a warning.
   ;; avy-all-windows 'all-frames
   (setq org-reveal-root "file:///Users/courcol/tools/reveal.js")
+  ;; Shell
+  (setq shell-default-term-shell "/bin/zsh")
+  (setq avy-all-windows 'all-frames)
+  (setq ispell-program-name "aspell")
   )
 
 (defun dotspacemacs/user-config ()
