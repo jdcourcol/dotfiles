@@ -65,8 +65,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      dumb-jump,
-                                      ox-reveal,
+                                      dumb-jump
+                                      ox-reveal
                                       cl
                                       )
    ;; A list of packages that cannot be updated.
