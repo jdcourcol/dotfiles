@@ -70,13 +70,15 @@
 ** ffap
 | gf | go to file |
 ** fasd
-| SPC f a f | find file with fasd |
+| SPC f a f | find file with fasd      |
 | SPC f a d | find directory with fasd |
 ** avy
 |SPC j l| jump to line|
 ** dumb jump
-| SPC m g g | go to definition |
-| SPC j q   | quick look       |
+| SPC m g g | go to definition       |
+| SPC j q   | quick look             |
+| SPC s P   | find symbol in project |
+| SPC s s   | swoop                  |
 * Windows
 ** split
 | key     | description         |
