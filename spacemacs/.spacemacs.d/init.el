@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
      markdown
      python
      ;; ----------------------------------------------------------------
@@ -311,6 +312,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq shell-default-term-shell "/bin/zsh")
   (setq avy-all-windows 'all-frames)
   (setq ispell-program-name "aspell")
+  (setq evil-move-cursor-back nil)
   )
 
 (defun dotspacemacs/user-config ()
