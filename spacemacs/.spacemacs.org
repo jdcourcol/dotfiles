@@ -19,6 +19,7 @@
 | d0, d$    | delete from current position to beginning, end         |
 | dw, db    | delete from current position to beginning, end of word |
 | SPC x d w | delete whitespaces                                     |
+| daw       | delete a word                                          |
 ** copy/paste
 | key     | description         |
 |---------+---------------------|
