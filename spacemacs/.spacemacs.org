@@ -1,17 +1,18 @@
 * Cursor
-| key     | description                        |
-|---------+------------------------------------|
-| h,i,j,k | move cursor                        |
-| H,M,L   | move top, middle, bottom of screen |
-| w,b     | jump forward backward word         |
-| 0,$     | jump beginning end of line         |
-| gg,G    | jump first, last line of document  |
-| :120    | go to line 120                     |
-| `.      | go to the last edited line         |
-| C-u,d   | go up, down one screen             |
-| zz      | place current line in the middle   |
-| zb      | place current line in the bottom   |
-|         |                                    |
+| key     | description                             |
+|---------+-----------------------------------------|
+| h,i,j,k | move cursor                             |
+| H,M,L   | move top, middle, bottom of screen      |
+| w,b     | jump forward backward word              |
+| 0,$     | jump beginning end of line              |
+| ^       | go to first non blank character of line |
+| gg,G    | jump first, last line of document       |
+| :120    | go to line 120                          |
+| `.      | go to the last edited line              |
+| C-u,d   | go up, down one screen                  |
+| zz      | place current line in the middle        |
+| zb      | place current line in the bottom        |
+|         |                                         |
 * Edition
 ** deletion
 | key       | description                                            |
@@ -42,9 +43,10 @@
 | SPC-u | undo tree   |
 | d     | show diff   |
 ** insertion
-| o | new line under        |
-| O | new line above        |
-| A | insert at end of line |
+   | I | insert at beginning of line |
+   | o | new line under              |
+   | O | new line above              |
+   | A | insert at end of line       |
 ** search/replace
 | :%s/\(aaa\)(print)/\2\1/g | group |
 |                           |       |
