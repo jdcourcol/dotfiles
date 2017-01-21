@@ -413,7 +413,25 @@ you should place your code here."
   (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
   (global-set-key [f9] 'copy-to-clipboard)
   (global-set-key [f10] 'paste-from-clipboard)
+  (use-package evil-mc
+    :ensure t
+    :config
+    (global-evil-mc-mode  1)
 
+    (defun evil--mc-make-cursor-at-col (startcol _endcol orig-line)
+      (move-to-column startcol)
+      (unless (= (line-number-at-pos) orig-line)
+        (evil-mc-make-cursor-here)))
+    (defun evil-mc-make-vertical-cursors (beg end)
+      (interactive (list (region-beginning) (region-end)))
+      (evil-mc-pause-cursors)
+      (apply-on-rectangle #'evil--mc-make-cursor-at-col
+                          beg end (line-number-at-pos (point)))
+      (evil-mc-resume-cursors)
+      (evil-normal-state)
+      (move-to-column (evil-mc-column-number (if (> end beg)
+                                                 beg
+                                               end)))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
