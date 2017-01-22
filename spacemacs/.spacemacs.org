@@ -37,11 +37,13 @@
 |---------+---------------------|
 | ggVG    | select all          |
 | SPC s e | iEdit (multicursor) |
+| g r e   | evil-mc             |
 ** undo 
 | key   | description |
 |-------+-------------|
 | SPC-u | undo tree   |
 | d     | show diff   |
+|       |             |
 ** insertion
    | I | insert at beginning of line |
    | o | new line under              |
