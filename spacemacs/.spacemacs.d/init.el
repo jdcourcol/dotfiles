@@ -445,6 +445,8 @@ you should place your code here."
   (defvar evil-normal-timer
     (run-with-idle-timer 10 t #'evil-normalize-all-buffers)
     "Drop back to normal state after idle for 10 seconds.")
+   (remove-hook 'prog-mode-hook #'smartparens-mode)
+   (spacemacs/toggle-smartparens-globally-off)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
