@@ -432,6 +432,19 @@ you should place your code here."
       (move-to-column (evil-mc-column-number (if (> end beg)
                                                  beg
                                                end)))))
+  (defun evil-normalize-all-buffers ()
+    "Force a drop to normal state."
+    (unless (eq evil-state 'normal)
+      (dolist (buffer (buffer-list))
+        (set-buffer buffer)
+        (unless (or (minibufferp)
+                    (eq evil-state 'emacs))
+          (evil-force-normal-state)))
+      (message "Dropped back to normal state in all buffers")))
+
+  (defvar evil-normal-timer
+    (run-with-idle-timer 10 t #'evil-normalize-all-buffers)
+    "Drop back to normal state after idle for 10 seconds.")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
