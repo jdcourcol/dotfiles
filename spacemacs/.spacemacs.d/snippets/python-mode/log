@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: logging
+# key: log
+# --
+logger = logging.getLogger("${1:name}")
+logger.setLevel(logging.${2:level})
+logger.propagate = False
+logger.addHandler(logging.StreamHandler())
+

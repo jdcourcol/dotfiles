@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pretty
+# key: pretty
+# --
+json.dump(${1:json}, ${2:file}, sort_keys=True, indent=4, separators=(',', ': '))
