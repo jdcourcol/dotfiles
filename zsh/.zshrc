@@ -107,7 +107,7 @@ alias pipi='pip install -i http://localhost:3141/root/pypi'
 alias v='set +m; env TERM=xterm-256colors f -e "emacs -nw" '
 
 export HISTCONTROL=ignoredups
-
+setopt HIST_IGNORE_DUPS
 # Increase the maximum number of lines contained in the history file
 # (default is 500)
 export HISTFILESIZE=100000
