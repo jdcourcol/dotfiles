@@ -72,6 +72,9 @@
 |-----------+-------------------|
 | SPC f e R | reload .spacemacs |
 * Jump
+** cursor
+| '. | jump to last edition line            |
+| `. | jump to exact last edition character |
 ** ffap
 | gf | go to file |
 ** fasd
