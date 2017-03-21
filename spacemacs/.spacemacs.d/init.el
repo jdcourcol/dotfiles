@@ -31,6 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     csv
+     ansible
+     lua
      yaml
      markdown
      python
@@ -69,6 +72,7 @@ values."
                                       dumb-jump
                                       ox-reveal
                                       cl
+                                      (vue-mode :location (recipe :fetcher github :repo "codefalling/vue-mode"))
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -322,6 +326,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
   (setq display-time-day-and-date t
         display-time-default-load-average nil
@@ -447,7 +452,8 @@ you should place your code here."
     "Drop back to normal state after idle for 10 seconds.")
    (remove-hook 'prog-mode-hook #'smartparens-mode)
    (spacemacs/toggle-smartparens-globally-off)
-  )
+   
+   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
