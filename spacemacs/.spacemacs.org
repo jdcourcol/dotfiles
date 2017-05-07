@@ -6,6 +6,7 @@
 | w,b     | jump forward backward word              |
 | 0,$     | jump beginning end of line              |
 | ^       | go to first non blank character of line |
+| g_      | go to last non blank character of line  |
 | gg,G    | jump first, last line of document       |
 | :120    | go to line 120                          |
 | `.      | go to the last edited line              |
