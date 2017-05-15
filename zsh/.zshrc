@@ -50,6 +50,10 @@ lock(){
     fi
 }
 
+if [[ "$unamestr" != "Darwin" ]]; then
+	zle -N lock
+	bindkey "^[l" lock
+fi
 
 va () {
    source `find . -name activate`
