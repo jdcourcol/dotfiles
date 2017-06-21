@@ -40,11 +40,12 @@
 | SPC s e | iEdit (multicursor) |
 | g r e   | evil-mc             |
 ** undo 
-| key   | description |
-|-------+-------------|
-| SPC-u | undo tree   |
-| d     | show diff   |
-|       |             |
+| key    | description |
+|--------+-------------|
+| SPC-u  | undo tree   |
+| d      | show diff   |
+| ctrl-r | redo        |
+| u      | undo        |
 ** insertion
    | I | insert at beginning of line |
    | o | new line under              |
