@@ -44,7 +44,6 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
-     evernote
      fasd
      git
      github
@@ -330,6 +329,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
+  (setq evil-want-fine-undo nil)
   (setq display-time-day-and-date t
         display-time-default-load-average nil
         display-time-24hr-format nil)
@@ -340,6 +340,8 @@ you should place your code here."
   (setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
   (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
   (setq auto-save-list-file-prefix emacs-tmp-dir)
+  (add-hook 'text-mode-hook #'(lambda ( )
+                               (modify-syntax-entry ?_ "w" )))
 
   (setq powerline-default-separator 'alternate)
 
@@ -454,7 +456,7 @@ you should place your code here."
     "Drop back to normal state after idle for 10 seconds.")
    (remove-hook 'prog-mode-hook #'smartparens-mode)
    (spacemacs/toggle-smartparens-globally-off)
-   
+
    )
 
 ;; Do not write anything past this comment. This is where Emacs will
