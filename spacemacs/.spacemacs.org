@@ -29,6 +29,7 @@
 | d       | delete              |
 | p       | paste               |
 | SPC-r-y | helm show kill ring |
+| "x y    | yank in register x  |
 ** commenting
 | key   | description              |
 |-------+--------------------------|
