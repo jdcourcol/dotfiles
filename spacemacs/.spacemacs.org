@@ -70,6 +70,10 @@
 |---------+-----------------------|
 | C-c C-c | realign table         |
 | S-Tab   | got to previous field |
+** task
+| key     | description        |
+|---------+--------------------|
+| C-c C-t | rotate done status |
 * Configuration
 | key       | description       |
 |-----------+-------------------|
