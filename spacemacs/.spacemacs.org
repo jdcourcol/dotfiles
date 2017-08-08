@@ -22,6 +22,12 @@
 | dw, db    | delete from current position to beginning, end of word |
 | SPC x d w | delete whitespaces                                     |
 | daw       | delete a word                                          |
+** move line
+| key | description    |
+|-----+----------------|
+| [e  | move line up   |
+| ]e  | move line down |
+
 ** copy/paste
 | key     | description         |
 |---------+---------------------|
@@ -55,6 +61,17 @@
 ** search/replace
 | :%s/\(aaa\)(print)/\2\1/g | group |
 |                           |       |
+** macro
+| key    | description                        |
+|--------+------------------------------------|
+| q      | start/stop recording               |
+| "a q   | start recording in a register      |
+| 2 "a @ | replay 2 times macro in register a |
+* fold
+ | key | description |
+ |-----+-------------|
+ | z c | fold        |
+ | z o | unfold      |
 * Indent
 * Orgmode
 ** tree
@@ -94,6 +111,7 @@
 | SPC j q   | quick look             |
 | SPC s P   | find symbol in project |
 | SPC s s   | swoop                  |
+| *         | find word at cursor    |
 * Windows
 ** split
 | key     | description         |

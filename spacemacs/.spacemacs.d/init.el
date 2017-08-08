@@ -329,7 +329,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
-  (setq evil-want-fine-undo nil)
+  (setq evil-want-fine-undo 'fine)
   (setq display-time-day-and-date t
         display-time-default-load-average nil
         display-time-24hr-format nil)
@@ -340,9 +340,11 @@ you should place your code here."
   (setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
   (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
   (setq auto-save-list-file-prefix emacs-tmp-dir)
-  (add-hook 'text-mode-hook #'(lambda ( )
-                               (modify-syntax-entry ?_ "w" )))
+  (add-hook 'python-mode-hook '(lambda ( )
+                               (modify-syntax-entry ?_ "w" python-mode-syntax-table)))
 
+  (add-hook 'js2-mode-hook '(lambda ( )
+                                 (modify-syntax-entry ?_ "w" js2-mode-syntax-table)))
   (setq powerline-default-separator 'alternate)
 
   (defun run-python-once ()
