@@ -458,7 +458,7 @@ you should place your code here."
     "Drop back to normal state after idle for 10 seconds.")
    (remove-hook 'prog-mode-hook #'smartparens-mode)
    (spacemacs/toggle-smartparens-globally-off)
-
+   (setq evilmi-always-simple-jump t)
    )
 
 ;; Do not write anything past this comment. This is where Emacs will

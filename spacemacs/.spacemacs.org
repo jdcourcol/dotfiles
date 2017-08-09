@@ -13,7 +13,7 @@
 | C-u,d   | go up, down one screen                  |
 | zz      | place current line in the middle        |
 | zb      | place current line in the bottom        |
-|         |                                         |
+| pipe    | move to column                          |
 * Edition
 ** deletion
 | key       | description                                            |
@@ -47,12 +47,12 @@
 | SPC s e | iEdit (multicursor) |
 | g r e   | evil-mc             |
 ** undo 
-| key    | description |
-|--------+-------------|
-| SPC-u  | undo tree   |
-| d      | show diff   |
-| ctrl-r | redo        |
-| u      | undo        |
+| key     | description |
+|---------+-------------|
+| SPC-a-u | undo tree   |
+| d       | show diff   |
+| ctrl-r  | redo        |
+| u       | undo        |
 ** insertion
    | I | insert at beginning of line |
    | o | new line under              |
