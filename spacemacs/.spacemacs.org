@@ -14,6 +14,8 @@
 | zz      | place current line in the middle        |
 | zb      | place current line in the bottom        |
 | pipe    | move to column                          |
+| g-m     | middle of visual line                   |
+| (, {, [[ | previous sentence, paragraph, function |
 * Edition
 ** deletion
 | key       | description                                            |
@@ -75,13 +77,16 @@
 * Indent
 * Orgmode
 ** tree
-| key       | description        |
-|-----------+--------------------|
-| TAB       | cycle              |
-| g h,j,k,l | navigate header    |
-| t         | todo               |
-| T         | insert todo header |
-| O         | open above         |
+| key       | description              |
+|-----------+--------------------------|
+| TAB       | cycle                    |
+| g h,j,k,l | navigate header          |
+| t         | todo                     |
+| T         | insert todo header       |
+| O         | open above               |
+| M-RET RET | insert header same level |
+| M-o       | insert sub header        |
+|           |                          |
 ** table
 | key     | description           |
 |---------+-----------------------|
