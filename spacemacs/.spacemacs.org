@@ -1,137 +1,142 @@
 * Cursor
-| key     | description                             |
-|---------+-----------------------------------------|
-| h,i,j,k | move cursor                             |
-| H,M,L   | move top, middle, bottom of screen      |
-| w,b     | jump forward backward word              |
-| 0,$     | jump beginning end of line              |
-| ^       | go to first non blank character of line |
-| g_      | go to last non blank character of line  |
-| gg,G    | jump first, last line of document       |
-| :120    | go to line 120                          |
-| `.      | go to the last edited line              |
-| C-u,d   | go up, down one screen                  |
-| zz      | place current line in the middle        |
-| zb      | place current line in the bottom        |
-| pipe    | move to column                          |
-| g-m     | middle of visual line                   |
-| (, {, [[ | previous sentence, paragraph, function |
+  | key     | description                             |
+  |---------+-----------------------------------------|
+  | h,i,j,k | move cursor                             |
+  | H,M,L   | move top, middle, bottom of screen      |
+  | w,b     | jump forward backward word              |
+  | 0,$     | jump beginning end of line              |
+  | ^       | go to first non blank character of line |
+  | g_      | go to last non blank character of line  |
+  | gg,G    | jump first, last line of document       |
+  | :120    | go to line 120                          |
+  | `.      | go to the last edited line              |
+  | C-u,d   | go up, down one screen                  |
+  | zz      | place current line in the middle        |
+  | zb      | place current line in the bottom        |
+  | pipe    | move to column                          |
+  | g-m     | middle of visual line                   |
+  | (, {, [[ | previous sentence, paragraph, function |
 * Edition
 ** deletion
-| key       | description                                            |
-|-----------+--------------------------------------------------------|
-| d0, d$    | delete from current position to beginning, end         |
-| dw, db    | delete from current position to beginning, end of word |
-| SPC x d w | delete whitespaces                                     |
-| daw       | delete a word                                          |
+   | key       | description                                            |
+   |-----------+--------------------------------------------------------|
+   | d0, d$    | delete from current position to beginning, end         |
+   | dw, db    | delete from current position to beginning, end of word |
+   | SPC x d w | delete whitespaces                                     |
+   | daw       | delete a word                                          |
 ** move line
-| key | description    |
-|-----+----------------|
-| [e  | move line up   |
-| ]e  | move line down |
+   | key | description    |
+   |-----+----------------|
+   | [e  | move line up   |
+   | ]e  | move line down |
 
 ** copy/paste
-| key     | description         |
-|---------+---------------------|
-| y       | yank                |
-| d       | delete              |
-| p       | paste               |
-| SPC-r-y | helm show kill ring |
-| "x y    | yank in register x  |
+   | key     | description         |
+   |---------+---------------------|
+   | y       | yank                |
+   | d       | delete              |
+   | p       | paste               |
+   | SPC-r-y | helm show kill ring |
+   | "x y    | yank in register x  |
 ** commenting
-| key   | description              |
-|-------+--------------------------|
-| SPC-; | toggle comment/uncomment |
+   | key   | description              |
+   |-------+--------------------------|
+   | SPC-; | toggle comment/uncomment |
 ** selection
-| key     | description         |
-|---------+---------------------|
-| ggVG    | select all          |
-| SPC s e | iEdit (multicursor) |
-| g r e   | evil-mc             |
+   | key     | description         |
+   |---------+---------------------|
+   | ggVG    | select all          |
+   | SPC s e | iEdit (multicursor) |
+   | g r e   | evil-mc             |
 ** undo 
-| key     | description |
-|---------+-------------|
-| SPC-a-u | undo tree   |
-| d       | show diff   |
-| ctrl-r  | redo        |
-| u       | undo        |
+   | key     | description |
+   |---------+-------------|
+   | SPC-a-u | undo tree   |
+   | d       | show diff   |
+   | ctrl-r  | redo        |
+   | u       | undo        |
 ** insertion
    | I | insert at beginning of line |
    | o | new line under              |
    | O | new line above              |
    | A | insert at end of line       |
 ** search/replace
-| :%s/\(aaa\)(print)/\2\1/g | group |
-|                           |       |
+   | :%s/\(aaa\)(print)/\2\1/g | group |
+   |                           |       |
 ** macro
-| key    | description                        |
-|--------+------------------------------------|
-| q      | start/stop recording               |
-| "a q   | start recording in a register      |
-| 2 "a @ | replay 2 times macro in register a |
+   | key    | description                        |
+   |--------+------------------------------------|
+   | q      | start/stop recording               |
+   | "a q   | start recording in a register      |
+   | 2 "a @ | replay 2 times macro in register a |
 * fold
- | key | description |
- |-----+-------------|
- | z c | fold        |
- | z o | unfold      |
+  | key | description |
+  |-----+-------------|
+  | z c | fold        |
+  | z o | unfold      |
 * Indent
+  | key | description      |
+  |-----+------------------|
+  | ==  | indent selection |
+  |     |                  |
+
 * Orgmode
 ** tree
-| key       | description              |
-|-----------+--------------------------|
-| TAB       | cycle                    |
-| g h,j,k,l | navigate header          |
-| t         | todo                     |
-| T         | insert todo header       |
-| O         | open above               |
-| M-RET RET | insert header same level |
-| M-o       | insert sub header        |
-|           |                          |
+   | key       | description              |
+   |-----------+--------------------------|
+   | TAB       | cycle                    |
+   | g h,j,k,l | navigate header          |
+   | t         | todo                     |
+   | T         | insert todo header       |
+   | O         | open above               |
+   | M-RET RET | insert header same level |
+   | M-o       | insert sub header        |
+   |           |                          |
 ** table
-| key     | description           |
-|---------+-----------------------|
-| C-c C-c | realign table         |
-| S-Tab   | got to previous field |
+   | key     | description           |
+   |---------+-----------------------|
+   | C-c C-c | realign table         |
+   | S-Tab   | got to previous field |
 ** task
-| key     | description        |
-|---------+--------------------|
-| C-c C-t | rotate done status |
+   | key     | description        |
+   |---------+--------------------|
+   | C-c C-t | rotate done status |
 * Configuration
-| key       | description       |
-|-----------+-------------------|
-| SPC f e R | reload .spacemacs |
+  | key       | description       |
+  |-----------+-------------------|
+  | SPC f e R | reload .spacemacs |
 * Jump
 ** cursor
-| '. | jump to last edition line            |
-| `. | jump to exact last edition character |
+   | '. | jump to last edition line            |
+   | `. | jump to exact last edition character |
 ** ffap
-| gf | go to file |
+   | gf | go to file |
 ** fasd
-| SPC f a f | find file with fasd      |
-| SPC f a d | find directory with fasd |
+   | SPC f a f | find file with fasd      |
+   | SPC f a d | find directory with fasd |
 ** avy
-|SPC j l| jump to line|
+   |SPC j l| jump to line|
 ** dumb jump
-| SPC m g g | go to definition       |
-| SPC j q   | quick look             |
-| SPC s P   | find symbol in project |
-| SPC s s   | swoop                  |
-| *         | find word at cursor    |
+   | SPC m g g | go to definition       |
+   | SPC j q   | quick look             |
+   | SPC s P   | find symbol in project |
+   | SPC s s   | swoop                  |
+   | *         | find word at cursor    |
 * Windows
 ** split
-| key     | description         |
-|---------+---------------------|
-| C-x 2   | split horizontal    |
-| SPC w s | split horizontal    |
-| C-x 3   | split vertical      |
-| SPC w v | split vertical      |
-| SPC w . | window manipulation |
+   | key     | description         |
+   |---------+---------------------|
+   | C-x 2   | split horizontal    |
+   | SPC w s | split horizontal    |
+   | C-x 3   | split vertical      |
+   | SPC w v | split vertical      |
+   | SPC w . | window manipulation |
 ** neotree
    | key     | description |
    |---------+-------------|
    | SPC f t | toggle      |
 * Helm/project
-| C-z     | help in helm         |
-| SPC-p-f | find file in project |
-| SPC /   | search in project    |
-| SPC s s | search in file       |
+  | C-z     | help in helm         |
+  | SPC-p-f | find file in project |
+  | SPC /   | search in project    |
+  | SPC s s | search in file       |
