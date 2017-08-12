@@ -107,8 +107,9 @@
   | SPC f e R | reload .spacemacs |
 * Jump
 ** cursor
-   | '. | jump to last edition line            |
-   | `. | jump to exact last edition character |
+   | '.      | jump to last edition line            |
+   | `.      | jump to exact last edition character |
+   | SPC j i | semantic jump                        |
 ** ffap
    | gf | go to file |
 ** fasd
