@@ -50,7 +50,8 @@ values."
      html
      javascript
      ipython-notebook
-     ;; markdown
+     markdown
+     mu4e
      org
      (org :variables org-enable-reveal-js-support t)
      osx
@@ -63,6 +64,7 @@ values."
      syntax-checking
      ;; version-control
      restclient
+     evil-snipe
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -468,6 +470,9 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/SWITCHdrive/me/today.org" "~/dotfiles/spacemacs/.spacemacs.org")))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -92,6 +92,13 @@
    | M-RET RET | insert header same level |
    | M-o       | insert sub header        |
    |           |                          |
+** timestamp
+   | key    | description             |
+   |--------+-------------------------|
+   | , .    | insert timestamp        |
+   | ,. ,.  | insert range            |
+   | S-left | move cursor in calendar |
+   |        |                         |
 ** table
    | key     | description           |
    |---------+-----------------------|
