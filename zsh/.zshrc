@@ -53,6 +53,8 @@ lock(){
 if [[ "$unamestr" != "Darwin" ]]; then
 	zle -N lock
 	bindkey "^[l" lock
+else
+    setxkbmap -option caps:escape
 fi
 
 va () {
@@ -151,4 +153,3 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
-setxkbmap -option caps:escape
