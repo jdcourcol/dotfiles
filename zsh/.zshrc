@@ -151,3 +151,4 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
+setxkbmap -option caps:escape
