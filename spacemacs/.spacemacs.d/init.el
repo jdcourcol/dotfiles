@@ -74,6 +74,7 @@ values."
                                       dumb-jump
                                       ox-reveal
                                       cl
+                                      evil-terminal-cursor-changer
                                       (vue-mode :location (recipe :fetcher github :repo "codefalling/vue-mode"))
                                       )
    ;; A list of packages that cannot be updated.
@@ -302,7 +303,6 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
-   dotspacemacs-colorize-cursor-according-to-state t
    ))
 
 (defun dotspacemacs/user-init ()
@@ -329,6 +329,15 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+   (unless (display-graphic-p)
+     (require 'evil-terminal-cursor-changer)
+     (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+     )
+   (setq evil-normal-state-cursor '("orange" box))
+   (setq evil-insert-state-cursor '("green" bar))
+   (setq evil-visual-state-cursor '("gray" box))
+   (setq-default evil-insert-state-cursor 'bar)
+
   (xterm-mouse-mode -1)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
