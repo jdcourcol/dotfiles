@@ -336,7 +336,6 @@ you should place your code here."
    (setq evil-normal-state-cursor '("orange" box))
    (setq evil-insert-state-cursor '("green" bar))
    (setq evil-visual-state-cursor '("gray" box))
-   (setq-default evil-insert-state-cursor 'bar)
 
   (xterm-mouse-mode -1)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
