@@ -42,6 +42,12 @@ values."
      ;; ----------------------------------------------------------------
      helm
      auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      ;; better-defaults
      emacs-lisp
      fasd
@@ -74,6 +80,7 @@ values."
                                       dumb-jump
                                       ox-reveal
                                       cl
+                                      keyfreq
                                       evil-terminal-cursor-changer
                                       (vue-mode :location (recipe :fetcher github :repo "codefalling/vue-mode"))
                                       )
@@ -336,7 +343,9 @@ you should place your code here."
    (setq evil-normal-state-cursor '("orange" box))
    (setq evil-insert-state-cursor '("green" bar))
    (setq evil-visual-state-cursor '("gray" box))
-
+   (require 'keyfreq)
+   (keyfreq-mode 1)
+   (keyfreq-autosave-mode 1)
   (xterm-mouse-mode -1)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
