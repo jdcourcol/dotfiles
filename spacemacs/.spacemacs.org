@@ -1,21 +1,22 @@
 * Cursor
-  | key     | description                             |
-  |---------+-----------------------------------------|
-  | h,i,j,k | move cursor                             |
-  | H,M,L   | move top, middle, bottom of screen      |
-  | w,b     | jump forward backward word              |
-  | 0,$     | jump beginning end of line              |
-  | ^       | go to first non blank character of line |
-  | g_      | go to last non blank character of line  |
-  | gg,G    | jump first, last line of document       |
-  | :120    | go to line 120                          |
-  | `.      | go to the last edited line              |
-  | C-u,d   | go up, down one screen                  |
-  | zz      | place current line in the middle        |
-  | zb      | place current line in the bottom        |
-  | pipe    | move to column                          |
-  | g-m     | middle of visual line                   |
-  | (, {, [[ | previous sentence, paragraph, function |
+  | key      | description                             |
+  |----------+-----------------------------------------|
+  | h,i,j,k  | move cursor                             |
+  | H,M,L    | move top, middle, bottom of screen      |
+  | w,b      | jump forward backward word              |
+  | 0,$      | jump beginning end of line              |
+  | ^        | go to first non blank character of line |
+  | g_       | go to last non blank character of line  |
+  | gg,G     | jump first, last line of document       |
+  | :120     | go to line 120                          |
+  | ''       | move to last cursor position            |
+  | `.       | go to the last edited line              |
+  | C-u,d    | go up, down one screen                  |
+  | zz       | place current line in the middle        |
+  | zb       | place current line in the bottom        |
+  | pipe     | move to column                          |
+  | g-m      | middle of visual line                   |
+  | (, {, [[ | previous sentence, paragraph, function  |
 * Edition
 ** deletion
    | key       | description                                            |
@@ -68,7 +69,7 @@
    |--------+------------------------------------|
    | q      | start/stop recording               |
    | "a q   | start recording in a register      |
-   | 2 "a @ | replay 2 times macro in register a |
+   | "a 2 @ | replay 2 times macro in register a |
 * fold
   | key | description |
   |-----+-------------|
@@ -104,10 +105,10 @@
    |---------+-----------------------|
    | C-c C-c | realign table         |
    | S-Tab   | got to previous field |
-** task
-   | key     | description        |
-   |---------+--------------------|
-   | C-c C-t | rotate done status |
+** Task
+   | key | description        |
+   |-----+--------------------|
+   | t   | rotate done status |
 * Configuration
   | key       | description       |
   |-----------+-------------------|
