@@ -349,6 +349,8 @@ you should place your code here."
    ;; disable anaconda response display
    (remove-hook 'anaconda-mode-response-read-fail-hook
                                      'anaconda-mode-show-unreadable-response)
+   ;; s causes issues with magit (squash)
+   (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
   (setq evil-want-fine-undo 'fine)
