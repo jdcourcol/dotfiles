@@ -45,7 +45,7 @@ unamestr=`uname`
 lock(){
     if [[ "$unamestr" != "Darwin" ]]; then
         xscreensaver-command -lock
- i    else
+     else
         pmset displaysleepnow
     fi
 }
