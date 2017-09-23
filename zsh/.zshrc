@@ -53,8 +53,7 @@ lock(){
 if [[ "$unamestr" != "Darwin" ]]; then
 	zle -N lock
 	bindkey "^[l" lock
-else
-    setxkbmap -option caps:escape
+  setxkbmap -option caps:escape
 fi
 
 va () {
