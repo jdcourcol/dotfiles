@@ -45,7 +45,7 @@ unamestr=`uname`
 lock(){
     if [[ "$unamestr" != "Darwin" ]]; then
         xscreensaver-command -lock
-    else
+ i    else
         pmset displaysleepnow
     fi
 }
@@ -53,7 +53,9 @@ lock(){
 if [[ "$unamestr" != "Darwin" ]]; then
 	zle -N lock
 	bindkey "^[l" lock
-  setxkbmap -option caps:escape
+  if [[ -n "$DISPLAY" ]]; then
+      setxkbmap -option caps:escape
+  fi
 fi
 
 va () {
