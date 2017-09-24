@@ -12,7 +12,8 @@
   | ''       | move to last cursor position            |
   | `.       | go to the last edited line              |
   | gi       | last position in insert mode            |
-  | C-u,d    | go up, down one screen                  |
+  | g; g,    | move between cursor history position    |
+  | c-u,d    | go up, down one screen                  |
   | zz       | place current line in the middle        |
   | zb       | place current line in the bottom        |
   | pipe     | move to column                          |
