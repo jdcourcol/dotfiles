@@ -46,11 +46,12 @@
    |-------+--------------------------|
    | SPC-; | toggle comment/uncomment |
 ** selection
-   | key     | description         |
-   |---------+---------------------|
-   | ggVG    | select all          |
-   | SPC s e | iEdit (multicursor) |
-   | g r e   | evil-mc             |
+   | key     | description           |
+   |---------+-----------------------|
+   | ggVG    | select all            |
+   | SPC s e | iEdit (multicursor)   |
+   | gv      | last visual selection |
+   | g r e   | evil-mc               |
 ** undo 
    | key     | description |
    |---------+-------------|
