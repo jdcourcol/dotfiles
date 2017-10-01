@@ -73,6 +73,11 @@
    | q      | start/stop recording               |
    | "a q   | start recording in a register      |
    | "a 2 @ | replay 2 times macro in register a |
+** surround
+   | key | description       |
+   |-----+-------------------|
+   | yss | surround sentence |
+   
 * fold
   | key | description |
   |-----+-------------|
