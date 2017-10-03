@@ -343,6 +343,7 @@ you should place your code here."
    (setq evil-normal-state-cursor '("orange" box))
    (setq evil-insert-state-cursor '("green" bar))
    (setq evil-visual-state-cursor '("gray" box))
+   (setq restclient-same-buffer-response nil)
    (keyfreq-mode 1)
    (keyfreq-autosave-mode 1)
    (xterm-mouse-mode -1)
