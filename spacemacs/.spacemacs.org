@@ -28,10 +28,12 @@
    | SPC x d w | delete whitespaces                                     |
    | daw       | delete a word                                          |
 ** move line
-   | key | description    |
-   |-----+----------------|
-   | [e  | move line up   |
-   | ]e  | move line down |
+   | key  | description       |
+   |------+-------------------|
+   | [e   | move line up      |
+   | ]e   | move line down    |
+   | [SPC | insert space up   |
+   | ]SPC | insert space down |
 
 ** copy/paste
    | key     | description         |
