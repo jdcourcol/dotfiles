@@ -154,3 +154,5 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
