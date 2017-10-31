@@ -33,11 +33,7 @@ ZSH_THEME="jdc"
 plugins=(git-prompt copybuffer fasd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
-
-#source /home/courcol/git-prompt/zshrc.sh
-#PROMPT='%{$fg[cyan]%}%B%m %{$reset_color%}%~%b%{$fg_bold[blue]%} $(git_super_status)%{$fg_bold[blue]%} % %{$reset_color%} %# '
-#PROMPT='%{$fg[cyan]%}%B%d %{$reset_color%}'
-# Customize to your needs...
+export FZF_DEFAULT_OPTS='--height 80% --reverse --border'
 
 unamestr=`uname`
 
