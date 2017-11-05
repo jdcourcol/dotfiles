@@ -111,6 +111,8 @@ alias v='set +m; env TERM=xterm-256colors f -e "emacs -nw" '
 
 export HISTCONTROL=ignoredups
 setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
 # Increase the maximum number of lines contained in the history file
 # (default is 500)
 export HISTFILESIZE=100000
