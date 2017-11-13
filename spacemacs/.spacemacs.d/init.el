@@ -371,7 +371,11 @@ you should place your code here."
   (add-hook 'js2-mode-hook '(lambda ( )
                                  (modify-syntax-entry ?_ "w" js2-mode-syntax-table)))
   (setq powerline-default-separator 'alternate)
-
+  (eval-after-load 'yasnippet
+    '(progn
+       (define-key yas-keymap (kbd "TAB") nil)
+       (define-key yas-minor-mode-map (kbd "<f6>") 'yas-expand)
+       (define-key yas-keymap (kbd "<f6>") 'yas-expand)))
   (defun run-python-once ()
     (remove-hook 'python-mode-hook 'run-python-once)
     (run-python (python-shell-parse-command)))
