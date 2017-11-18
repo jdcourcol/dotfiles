@@ -1,0 +1,87 @@
+brew install fpp; 
+brew install fpp
+brew install iftop
+brew install q
+brew install tinyproxy
+brew install siege
+brew install pstree
+brew install vtk --with-qt
+brew install python-vtk --with-qt
+brew install vtk
+brew install homebrew/science/vtk
+brew install gotty
+brew install webkit2png
+brew install gitk
+brew install moreutils
+brew install py27-lxml
+brew install libxml2
+brew install libxml2-dev
+brew install freetype
+brew install libpng
+brew install ffmpeg
+brew install pkg-config
+brew install hg
+brew install libtool
+brew install autotools
+brew install autoconf
+brew install automake
+brew install x11
+brew install rbenv ruby-build
+brew install neuron
+brew install rudix
+brew install unrar
+brew install htop
+brew install libjpeg-turbo
+brew install tmux
+brew install offline-imap
+brew services start offlineimap
+brew install mu
+brew install autojump
+brew install asdf
+brew install fasd
+brew install openssl
+brew link --force openssl
+brew install gifsicle
+brew install lighttpd
+brew install mas
+brew install gdrive
+brew install wakeonlan
+brew install imagemagick
+brew link --overwrite imagemagick
+brew install clang-omp
+brew unlink mu
+brew install mu --with-emacs
+brew install aspell --with-lang-en
+brew install peco\n
+brew install boost
+brew install boost_log
+brew install go
+brew install node
+brew postinstall node
+brew upgrade node
+brew install rename
+brew install cmake
+brew install MisterTea/et/et
+brew install exa
+brew install hub
+brew install mobile-shell
+brew cask install qutebrowser
+brew install ruby
+brew install fzf
+brew update readline
+brew upgrade readline
+brew upgrade bash
+brew install ripgrep
+brew install mosh
+brew install coreutils
+brew install pbcopy
+brew install unrar
+brew install fasd
+brew install aspell
+brew install the_silver_searcher
+brew install git-review
+brew install sshfs
+brew cask install osxfuse
+brew install sshfs
+brew install gifsicle
+brew install  imagemagick
