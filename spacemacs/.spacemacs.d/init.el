@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     octave
      csv
      ansible
      lua
@@ -354,7 +355,7 @@ you should place your code here."
    (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (setq vc-follow-symlinks t)
-  (setq evil-want-fine-undo 'fine)
+  (setq evil-want-fine-undo 't)
   (setq display-time-day-and-date t
         display-time-default-load-average nil
         display-time-24hr-format nil)
