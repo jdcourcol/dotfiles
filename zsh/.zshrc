@@ -61,6 +61,15 @@ else
     alias pkbc='xsel -ob | piknik -copy'
     alias pkbp='piknik -paste | xsel -ib'
 fi
+# pko <content> : copy <content> to the clipboard
+pko() {
+    echo "$*" | piknik -copy
+}
+
+# pkf <file> : copy the content of <file> to the clipboard
+pkf() {
+    piknik -copy < $1
+}
 # pkc : read the content to copy to the clipboard from STDIN
 alias pkc='piknik -copy'
 
