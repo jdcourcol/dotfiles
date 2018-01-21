@@ -54,6 +54,25 @@ if [[ "$unamestr" != "Darwin" ]]; then
   fi
 fi
 
+if [[ "$unamestr" == "Darwin" ]]; then
+    alias pkbc='pbpaste | piknik -copy'
+    alias pkbp='piknik -paste | pbcopy'
+else
+    alias pkbc='xsel -ob | piknik -copy'
+    alias pkbp='piknik -paste | xsel -ib'
+fi
+# pkc : read the content to copy to the clipboard from STDIN
+alias pkc='piknik -copy'
+
+# pkp : paste the clipboard content
+alias pkp='piknik -paste'
+
+# pkm : move the clipboard content
+alias pkm='piknik -move'
+
+# pkz : delete the clipboard content
+alias pkz='piknik -copy < /dev/null'
+
 va () {
    source `find . -name activate`
 }

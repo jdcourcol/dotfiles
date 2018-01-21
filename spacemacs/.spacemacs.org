@@ -80,6 +80,8 @@
    | key | description       |
    |-----+-------------------|
    | yss | surround sentence |
+** exiting holy mode
+   C-z
    
 * fold
   | key | description |
