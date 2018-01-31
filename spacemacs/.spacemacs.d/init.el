@@ -495,6 +495,8 @@ you should place your code here."
    (global-set-key [f4] 'evil-avy-goto-char-2)
    (setq edit-server-new-frame nil)
    (edit-server-start)
+   (define-key evil-normal-state-map (kbd "go") 'evil-avy-goto-word-0)
+   (define-key evil-normal-state-map (kbd "gb") 'evil-avy-goto-char-timer)
    )
 
 ;; Do not write anything past this comment. This is where Emacs will
