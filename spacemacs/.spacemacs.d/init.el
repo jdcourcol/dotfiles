@@ -497,6 +497,7 @@ you should place your code here."
    (edit-server-start)
    (define-key evil-normal-state-map (kbd "go") 'evil-avy-goto-word-0)
    (define-key evil-normal-state-map (kbd "gb") 'evil-avy-goto-char-timer)
+   (define-key evil-normal-state-map (kbd "gh") 'evil-avy-goto-subword-1)
    )
 
 ;; Do not write anything past this comment. This is where Emacs will
