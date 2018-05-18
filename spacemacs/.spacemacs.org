@@ -33,8 +33,6 @@
    |------+-------------------|
    | [e   | move line up      |
    | ]e   | move line down    |
-   | [SPC | insert space up   |
-   | ]SPC | insert space down |
 
 ** copy/paste
    | key     | description         |
@@ -63,10 +61,12 @@
    | ctrl-r  | redo        |
    | u       | undo        |
 ** insertion
-   | I | insert at beginning of line |
-   | o | new line under              |
-   | O | new line above              |
-   | A | insert at end of line       |
+   | I    | insert at beginning of line |
+   | o    | new line under              |
+   | O    | new line above              |
+   | A    | insert at end of line       |
+   | [SPC | insert space up             |
+   | ]SPC | insert space down           |
 ** search/replace
    | :%s/\(aaa\)(print)/\2\1/g | group |
    |                           |       |
