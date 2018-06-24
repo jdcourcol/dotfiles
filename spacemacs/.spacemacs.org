@@ -107,12 +107,13 @@
    | M-o       | insert sub header        |
    |           |                          |
 ** timestamp
-   | key    | description             |
-   |--------+-------------------------|
-   | , .    | insert timestamp        |
-   | ,. ,.  | insert range            |
-   | S-left | move cursor in calendar |
-   |        |                         |
+   | key      | description             |
+   |----------+-------------------------|
+   | , .      | insert timestamp        |
+   | ,. ,.    | insert range            |
+   | S- arrow | move cursor in calendar |
+   | <, >     | scroll 1 month          |
+   | .        | Today                   |
 ** table
    | key     | description           |
    |---------+-----------------------|
