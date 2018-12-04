@@ -68,8 +68,9 @@
    | [SPC | insert space up             |
    | ]SPC | insert space down           |
 ** search/replace
-   | :%s/\(aaa\)(print)/\2\1/g | group |
-   |                           |       |
+   | :%s/\(aaa\)(print)/\2\1/g | group             |
+   | after swoop, C-SPACE      | select row        |
+   | after swoop, C-c C-e      | edit selected row |
 ** macro
    | key    | description                        |
    |--------+------------------------------------|
