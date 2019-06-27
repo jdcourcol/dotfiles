@@ -26,6 +26,7 @@
    |-----------+--------------------------------------------------------|
    | d0, d$    | delete from current position to beginning, end         |
    | dw, db    | delete from current position to beginning, end of word |
+   | dt;       | delete until before occurence of ;                     |
    | SPC x d w | delete whitespaces                                     |
    | daw       | delete a word                                          |
 ** move line
