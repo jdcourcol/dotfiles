@@ -21,6 +21,11 @@
   | o        | go to other end in visual selection     |
   | (, {, [[ | previous sentence, paragraph, function  |
 * Edition
+** repeat
+      | key | description |
+      |-----+-------------|
+      | .   | repeat :)   |
+      |     |             |
 ** deletion
    | key       | description                                            |
    |-----------+--------------------------------------------------------|
