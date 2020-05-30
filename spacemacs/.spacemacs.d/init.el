@@ -30,7 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(go
      typescript
      octave
      csv
@@ -38,6 +38,7 @@ values."
      lua
      yaml
      markdown
+     lsp
      python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -57,7 +58,6 @@ values."
      github
      html
      javascript
-     ipython-notebook
      markdown
      mu4e
      org
@@ -339,6 +339,21 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; ;; fixing org ,-RET issue
+  ;; (with-eval-after-load 'org 
+  ;;   (org-defkey org-mode-map [(, n)] 'org-meta-return)
+  ;;   )
+  ;; (add-hook 'org-mode-hook (lambda()
+  ;;                            (define-key
+  ;;                              evil-normal-state-local-map
+  ;;                              (kbd "C-RET")
+  ;;                              #'org-meta-return)
+  ;;                            (define-key
+  ;;                              evil-insert-state-local-map
+  ;;                              (kbd "C-RET")
+  ;;                              #'org-meta-return)))
+
+
   (setq tramp-default-method "ssh")
   (setq tramp-shell-prompt-pattern "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
@@ -352,6 +367,7 @@ you should place your code here."
    (setq restclient-same-buffer-response nil)
    (keyfreq-mode 1)
    (keyfreq-autosave-mode 1)
+   (setq make-backup-files nil)
    (xterm-mouse-mode -1)
    ;; disable anaconda response display
    (remove-hook 'anaconda-mode-response-read-fail-hook
@@ -372,6 +388,7 @@ you should place your code here."
   (setq backup-directory-alist `(("." . ,emacs-tmp-dir)))
   (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
   (setq auto-save-list-file-prefix emacs-tmp-dir)
+  (setq auto-save-interval 10000000)
   (add-hook 'python-mode-hook '(lambda ( )
                                (modify-syntax-entry ?_ "w" python-mode-syntax-table)))
 
@@ -457,6 +474,8 @@ you should place your code here."
     (local-set-key (kbd "M-y") 'paste-from-x-clipboard)
     )
   (setq-default python-indent-offset 4)
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (python :variables python-formatter 'yapf)))
   (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
   (global-set-key [f9] 'copy-to-clipboard)
   (global-set-key [f10] 'paste-from-clipboard)
@@ -521,7 +540,7 @@ This function is called at the very end of Spacemacs initialization."
     ("~/SWITCHdrive/me/today.org" "~/dotfiles/spacemacs/.spacemacs.org")))
  '(package-selected-packages
    (quote
-    (yasnippet-snippets symon string-inflection spaceline-all-the-icons powerline pippel pipenv password-generator overseer org-brain ob-ipython nameless magithub ghub+ apiwrap importmagic epc ctable concurrent impatient-mode helm-xref helm-purpose window-purpose imenu-list helm-mu haml-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-org evil-lion evil-cleverparens paredit highlight request-deferred request deferred editorconfig doom-modeline all-the-icons memoize diff-hl counsel-projectile counsel swiper ivy web-completion-data restclient know-your-http-well company-lua centered-cursor-mode browse-at-remote packed anaconda-mode pythonic auto-complete tern popup skewer-mode simple-httpd epl bind-map log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck markdown-mode projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen undo-tree toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (helm-gtags godoctor go-gen-test go-fill-struct ggtags flycheck-golangci-lint bui ivy go-mode log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck markdown-mode projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen undo-tree toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(python-indent-guess-indent-offset nil))
 (custom-set-faces
