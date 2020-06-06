@@ -323,8 +323,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; TODO this raises a warning.
-  ;; avy-all-windows 'all-frames
-  (setq org-reveal-root "file:///Users/courcol/tools/reveal.js")
   ;; Shell
   (setq shell-default-term-shell "/bin/zsh")
   (setq avy-all-windows 'all-frames)
@@ -389,6 +387,7 @@ you should place your code here."
   (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
   (setq auto-save-list-file-prefix emacs-tmp-dir)
   (setq auto-save-interval 10000000)
+  (setq auto-save-default nil)
   (add-hook 'python-mode-hook '(lambda ( )
                                (modify-syntax-entry ?_ "w" python-mode-syntax-table)))
 
@@ -400,38 +399,6 @@ you should place your code here."
        (define-key yas-keymap (kbd "TAB") nil)
        (define-key yas-minor-mode-map (kbd "<f6>") 'yas-expand)
        (define-key yas-keymap (kbd "<f6>") 'yas-expand)))
-  ;; (defun run-python-once ()
-  ;;   (remove-hook 'python-mode-hook 'run-python-once)
-  ;;   (run-python (python-shell-parse-command)))
-  ;; (add-hook 'python-mode-hook 'run-python-once)
-  ;; ;; Configure flymake for Python
-  ;; (when (load "flymake" t)
-  ;;   (defun flymake-checker-init ()
-  ;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
-  ;;                        'flymake-create-temp-inplace))
-  ;;            (local-file (file-relative-name
-  ;;                         temp-file
-  ;;                         (file-name-directory buffer-file-name))))
-  ;;       (list "emacs_checker.sh" (list local-file))))
-  ;;   (add-to-list 'flymake-allowed-file-name-masks
-  ;;                '("\\.py\\'" flymake-checker-init)))
-  ;; ;; Configure to wait a bit longer after edits before starting
-  ;; (setq-default flymake-no-changes-timeout '3)
-  ;; (defun show-fly-err-at-point ()
-  ;;   "If the cursor is sitting on a flymake error, display the message in the minibuffer"
-  ;;   (require 'cl)
-  ;;   (interactive)
-  ;;   (let ((line-no (line-number-at-pos)))
-  ;;     (dolist (elem flymake-err-info)
-  ;;       (if (eq (car elem) line-no)
-  ;;           (let ((err (car (second elem))))
-  ;;             (message "%s" (flymake-ler-text err)))))))
-
-  ;; (add-hook 'post-command-hook 'show-fly-err-at-point)
-  ;; (defadvice flymake-post-syntax-check (before flymake-force-check-was-interrupted)
-  ;;   (setq flymake-check-was-interrupted t))
-  ;; (ad-activate 'flymake-post-syntax-check)
-  ;; (add-hook 'python-mode-hook '(lambda () (flymake-mode)))
   (defun revert-buffer-no-confirm ()
     "Revert buffer without confirmation."
     (interactive) (revert-buffer t t))
