@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(go
+   '(graphviz
+     go
      typescript
      octave
      csv
@@ -327,7 +328,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq shell-default-term-shell "/bin/zsh")
   (setq avy-all-windows 'all-frames)
   (setq ispell-program-name "aspell")
-  (setq evil-move-cursor-back nil)
+  ;; (setq evil-move-cursor-back nil)
   )
 
 (defun dotspacemacs/user-config ()
@@ -362,6 +363,7 @@ you should place your code here."
    (setq evil-normal-state-cursor '("orange" box))
    (setq evil-insert-state-cursor '("green" bar))
    (setq evil-visual-state-cursor '("gray" box))
+   (setq-default evil-escape-key-sequence "jk")
    (setq restclient-same-buffer-response nil)
    (keyfreq-mode 1)
    (keyfreq-autosave-mode 1)
@@ -468,6 +470,9 @@ you should place your code here."
    (define-key evil-normal-state-map (kbd "go") 'evil-avy-goto-word-0)
    (define-key evil-normal-state-map (kbd "gb") 'evil-avy-goto-char-timer)
    (define-key evil-normal-state-map (kbd "gh") 'evil-avy-goto-subword-1)
+   ;; disable auto pairing in webmode
+   (setq web-mode-enable-auto-closing nil)
+   (setq web-mode-enable-auto-pairing nil)
    (setq flycheck-pylintrc "~/.pylintrc")
    (setq flycheck-python-pylint-executable "python3"))
 
@@ -507,7 +512,7 @@ This function is called at the very end of Spacemacs initialization."
     ("~/SWITCHdrive/me/today.org" "~/dotfiles/spacemacs/.spacemacs.org")))
  '(package-selected-packages
    (quote
-    (helm-gtags godoctor go-gen-test go-fill-struct ggtags flycheck-golangci-lint bui ivy go-mode log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck markdown-mode projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen undo-tree toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (graphviz-dot-mode log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck markdown-mode projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen undo-tree toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(python-indent-guess-indent-offset nil))
 (custom-set-faces
