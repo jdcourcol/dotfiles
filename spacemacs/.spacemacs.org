@@ -4,6 +4,7 @@
   | h,i,j,k  | move cursor                             |
   | H,M,L    | move top, middle, bottom of screen      |
   | w,b      | jump forward backward word              |
+  | ctrl-b,f | move page down, up                      |
   | 0,$      | jump beginning end of line              |
   | ^        | go to first non blank character of line |
   | g_       | go to last non blank character of line  |
