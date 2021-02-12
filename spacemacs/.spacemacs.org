@@ -131,6 +131,10 @@
    | key | description        |
    |-----+--------------------|
    | t   | rotate done status |
+** tags
+| key | description |
+|-----+-------------|
+|     |             |
 * Configuration
   | key       | description       |
   |-----------+-------------------|
@@ -148,6 +152,7 @@
 ** avy
    |SPC j l| jump to line|
 ** dumb jump
+   | SPC j j   | snipe                  |
    | SPC m g g | go to definition       |
    | SPC j q   | quick look             |
    | SPC s P   | find symbol in project |
@@ -171,3 +176,20 @@
   | SPC-p-f | find file in project |
   | SPC /   | search in project    |
   | SPC s s | search in file       |
+
+* mu4e
+** main view
+| key | description     |
+|-----+-----------------|
+| U   | update database |
+** message view
+| key | description       |
+|-----+-------------------|
+| q   | quit message view |
+
+* log
+| key                         | description             |
+|-----------------------------+-------------------------|
+| command-log-mode            | activate log for buffer |
+| global-command-log-mode     |                         |
+| clm/open-command-log-buffer | open log                |
