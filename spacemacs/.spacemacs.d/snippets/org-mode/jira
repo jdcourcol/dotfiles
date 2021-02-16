@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jira 
+# key: jira 
+# --
+[[https://bbpteam.epfl.ch/project/issues/browse/$1[$1]$0
