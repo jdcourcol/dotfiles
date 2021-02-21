@@ -329,9 +329,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (setq shell-default-term-shell "/bin/zsh")
   (setq avy-all-windows 'all-frames)
   (setq ispell-program-name "aspell")
-  ;; (setq evil-move-cursor-back nil)
-  ;; (setq org-M-RET-may-split-line nil)
-
   )
 
 (defun dotspacemacs/user-config ()
@@ -351,14 +348,24 @@ you should place your code here."
   (setq mu4e-maildir "~/MaildDir"
         mu4e-trash-folder "/Trash"
         mu4e-refile-folder "/Archive"
+        mu4e-sent-folder "/&AMk-l&AOk-ments envoy&AOk-s"
         mu4e-get-mail-command "mbsync -a"
-        mu4e-update-interval nil
+        mu4e-update-interval 300
+        mu4e-index-cleanup nil
+        mu4e-index-lazy-check t
         mu4e-compose-signature-auto-include nil
         mu4e-view-show-images t
-        mu4e-view-show-addresses t)
+        mu4e-view-show-addresses t
+        user-mail-address "jean-denis.courcol@epfl.ch"
+        user-full-name "Jean-Denis Courcol")
+  (setq stmpmail-smtp-server "mail.epfl.ch"
+        smtpmail-smtp--service 465
+        smtpmail-stream-type 'ssl
+        message-send-mail-function 'smtpmail-send-it)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "RET" 'org-insert-heading-respect-content
     (or dotspacemacs-major-mode-leader-key ",") 'org-ctrl-c-ctrl-c
     "RET" 'org-insert-heading-respect-content)
+  (setq org-mu4e-link-query-in-headers-mode nil)
   (setq org-capture-templates
         `(("t" "Task Workflow")
           ("tt" "TASK" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Task.org" "Task")
@@ -449,19 +456,19 @@ you should place your code here."
   (add-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
   (global-set-key [f9] 'copy-to-clipboard)
   (global-set-key [f10] 'paste-from-clipboard)
-  (defun evil-normalize-all-buffers ()
-    "Force a drop to normal state."
-    (unless (eq evil-state 'normal)
-      (dolist (buffer (buffer-list))
-        (set-buffer buffer)
-        (unless (or (minibufferp)
-                    (eq evil-state 'emacs))
-          (evil-force-normal-state)))
-      (message "Dropped back to normal state in all buffers")))
+  ;; (defun evil-normalize-all-buffers ()
+  ;;   "Force a drop to normal state."
+  ;;   (unless (eq evil-state 'normal)
+  ;;     (dolist (buffer (buffer-list))
+  ;;       (set-buffer buffer)
+  ;;       (unless (or (minibufferp)
+  ;;                   (eq evil-state 'emacs))
+  ;;         (evil-force-normal-state)))
+  ;;     (message "Dropped back to normal state in all buffers")))
   (setq-default bidi-display-reordering nil)
-  (defvar evil-normal-timer
-    (run-with-idle-timer 10 t #'evil-normalize-all-buffers)
-    "Drop back to normal state after idle for 10 seconds.")
+  ;; (defvar evil-normal-timer
+  ;;   (run-with-idle-timer 10 t #'evil-normalize-all-buffers)
+  ;;   "Drop back to normal state after idle for 10 seconds.")
    (remove-hook 'prog-mode-hook #'smartparens-mode)
    (spacemacs/toggle-smartparens-globally-off)
    (setq evilmi-always-simple-jump t)
@@ -508,9 +515,11 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (graphviz-dot-mode log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck  projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (graphviz-dot-mode log4e gntp json-snatcher json-reformat multiple-cursors parent-mode gitignore-mode marshal logito pcache flyspell-correct pos-tip flx ghub treepy graphql iedit anzu tide typescript-mode edit-server org-mime yasnippet async websocket gh company avy ht alert magit-popup with-editor hydra f winum vue-mode use-package osx-dictionary live-py-mode hy-mode helm-make evil-nerd-commenter evil-matchit dumb-jump column-enforce-mode dash-functional smartparens evil flycheck projectile magit org-plus-contrib helm helm-core js2-mode dash s yapfify yaml-mode ws-butler which-key web-mode web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen toc-org tagedit ssass-mode spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pkg-info pip-requirements persp-mode pcre2el pbcopy paradox ox-reveal osx-trash orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file ob-restclient ob-http neotree mu4e-maildirs-extension mu4e-alert move-text mmm-mode magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl keyfreq json-mode js2-refactor js-doc jinja2-mode info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav ein edit-indirect diminish cython-mode csv-mode company-web company-tern company-statistics company-restclient company-ansible company-anaconda coffee-mode clean-aindent-mode bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
- '(python-indent-guess-indent-offset nil))
+ '(python-indent-guess-indent-offset nil)
+ '(smtpmail-smtp-server "mail.epfl.ch")
+ '(smtpmail-smtp-service 465))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
