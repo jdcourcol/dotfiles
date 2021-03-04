@@ -68,12 +68,13 @@
    | ctrl-r  | redo        |
    | u       | undo        |
 ** insertion
-   | I    | insert at beginning of line |
-   | o    | new line under              |
-   | O    | new line above              |
-   | A    | insert at end of line       |
-   | [SPC | insert space up             |
-   | ]SPC | insert space down           |
+   | I       | insert at beginning of line |
+   | o       | new line under              |
+   | O       | new line above              |
+   | A       | insert at end of line       |
+   | [SPC    | insert space up             |
+   | ]SPC    | insert space down           |
+   | C-x r t | insert rectangle            |
 ** search/replace
    | :%s/\(aaa\)(print)/\2\1/g | group             |
    | after swoop, C-SPACE      | select row        |
@@ -155,7 +156,6 @@
    | SPC j j   | snipe                  |
    | SPC m g g | go to definition       |
    | SPC j q   | quick look             |
-   | SPC s P   | find symbol in project |
    | SPC s s   | swoop                  |
    | *         | find word at cursor    |
 * Windows
