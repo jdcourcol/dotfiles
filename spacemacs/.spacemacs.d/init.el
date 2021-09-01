@@ -35,6 +35,7 @@ values."
      typescript
      octave
      csv
+     restructuredtext
      ansible
      lua
      yaml
@@ -63,7 +64,7 @@ values."
      org
      mu4e
      (mu4e :variables
-           mu4e-installation-path "/usr/local/Cellar/mu/1.4.15/share/emacs/site-lisp/mu/mu4e/")
+           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e/")
      osx
      ranger
      ;; (shell :variables
@@ -338,21 +339,48 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; solve mu4e slow https://github.com/djcb/mu/issues/1866
+  (setq mu4e-view-use-gnus t)
+  (setq-default show-trailing-whitespace t)
+  (defun thunderbird-open (msgid)
+    "open msgid in thunderbird"
+    (setq debug-on-error 't)
+    (message (mu4e-message-field msgid :message-id))
+    (kill-new (format "thunderlink://messageid=%s" (mu4e-message-field msgid :message-id)))
+    ;; (shell-command (format "cb_thunderlink.py thunderlink://messageid=%s" (mu4e-message-field msgid :message-id)))
+    )
+  (with-eval-after-load 'mu4e
+     (add-to-list 'mu4e-view-actions
+                  '("thunderlink" . thunderbird-open) )
+    )
+  (setq org-todo-keywords
+        '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" )))
+  (load-file "/Users/courcol/.spacemacs.d/org-recoll.el")
+  ;; (defun call-adobe(file_path _)
+  ;;   "open a path w/ adobe"
+  ;;   (shell-command (format
+  (org-add-link-type "pdf" (lambda (path) (shell-command (format "'/Applications/Adobe Acrobat Reader DC.app/Contents/MacOS/AdobeReader' '%s'" path))))
+
+  (define-key global-map (kbd "C-c t")
+     (lambda () (interactive) (thunderbird-open nil .))
+    )
+(setq org-recoll-file-search-automatically nil)
+  (global-set-key (kbd "C-c g") 'org-recoll-search)
+  (global-set-key (kbd "C-c u") 'org-recoll-update-index)
   (load "term/xterm")
   (let ((map (copy-keymap xterm-function-map)))
     (set-keymap-parent map (keymap-parent input-decode-map))
-    (set-keymap-parent input-decode-map map)) 
+    (set-keymap-parent input-decode-map map))
   (setq-default dotspacemacs-configuration-layers
                 '((mu4e :variables
-                        mu4e-installation-path "/usr/local/Cellar/mu/1.4.15/share/emacs/site-lisp/mu/mu4e/")))
+                        mu4e-installation-path "/usr/local/share/emacs/site-lisp/")))
+                        ;;mu4e-installation-path "/usr/local/Cellar/mu/1.4.15/share/emacs/site-lisp/mu/")))
   (setq mu4e-maildir "~/MaildDir"
         mu4e-trash-folder "/Trash"
         mu4e-refile-folder "/Archive"
         mu4e-sent-folder "/&AMk-l&AOk-ments envoy&AOk-s"
         mu4e-get-mail-command "mbsync -a"
         mu4e-update-interval 300
-        mu4e-index-cleanup nil
-        mu4e-index-lazy-check t
         mu4e-compose-signature-auto-include nil
         mu4e-view-show-images t
         mu4e-view-show-addresses t
@@ -367,17 +395,23 @@ you should place your code here."
     "RET" 'org-insert-heading-respect-content)
   (setq org-mu4e-link-query-in-headers-mode nil)
   (setq org-capture-templates
-        `(("t" "Task Workflow")
-          ("tt" "TASK" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Task.org" "Task")
+        `(
+          ("t" "TASK" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Task.org" "Task")
            "* TODO %^{description} %U" :empty-lines: 1)
           ("m" "Email Workflow")
           ("mf" "Follow Up" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Mail.org" "Follow Up")
-           "* TODO follow %a from  %:fromname %:date\n")
-          ("mg" "Get Reply" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Mail.org" "Get Reply")
+           "* TODO follow %a from  %:fromname %:date\nDEADLINE:%:date")
+          ("mr" "Get Reply" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Mail.org" "Get Reply")
            "* TODO get reply %a from %:fromname %:date\n")
-          ("j" "Jira Workflow")
-          ("jf" "Follow Up" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Ticket.org" "Follow Up")
+          ("j" "Jira" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Ticket.org" "Jira")
            "* TODO follow [[https://bbpteam.epfl.ch/project/issues/browse/%^{ticket}][%\\1]]  %U\n %^{description}\n " :empty-lines: 1)   ))
+
+  (define-key global-map (kbd "C-c r")
+    (lambda () (interactive) (org-capture nil "mr")))
+
+  (define-key global-map (kbd "C-c f")
+    (lambda () (interactive) (org-capture nil "mf")))
+
   (setq org-agenda-files '("/Users/courcol/switchdrive/me/org-files/agenda"))
   (setq tramp-default-method "ssh")
 

@@ -60,7 +60,7 @@
    | SPC s e | iEdit (multicursor)   |
    | gv      | last visual selection |
    | g r e   | evil-mc               |
-** undo 
+** undo
    | key     | description |
    |---------+-------------|
    | SPC-a-u | undo tree   |
@@ -91,7 +91,7 @@
    | yss | surround sentence |
 ** exiting holy mode
    C-z
-   
+
 * fold
   | key | description |
   |-----+-------------|
@@ -136,6 +136,12 @@
 | key | description |
 |-----+-------------|
 |     |             |
+** link
+| key   | description     |
+|-------+-----------------|
+| , i l | org-insert-link |
+|       |                 |
+
 * Configuration
   | key       | description       |
   |-----------+-------------------|
@@ -153,11 +159,11 @@
 ** avy
    |SPC j l| jump to line|
 ** dumb jump
-   | SPC j j   | snipe                  |
-   | SPC m g g | go to definition       |
-   | SPC j q   | quick look             |
-   | SPC s s   | swoop                  |
-   | *         | find word at cursor    |
+   | SPC j j   | snipe               |
+   | SPC m g g | go to definition    |
+   | SPC j q   | quick look          |
+   | SPC s s   | swoop               |
+   | *         | find word at cursor |
 * Windows
 ** split
    | key     | description         |
