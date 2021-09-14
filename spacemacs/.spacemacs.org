@@ -184,6 +184,7 @@
   | SPC s s | search in file       |
 
 * mu4e
+  http://manpages.ubuntu.com/manpages/cosmic/man7/mu-query.7.html
 ** main view
 | key | description     |
 |-----+-----------------|

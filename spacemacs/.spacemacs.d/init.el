@@ -339,8 +339,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; solve mu4e slow https://github.com/djcb/mu/issues/1866
-  (setq mu4e-view-use-gnus t)
   (setq-default show-trailing-whitespace t)
   (defun thunderbird-open (msgid)
     "open msgid in thunderbird"
@@ -352,6 +350,12 @@ you should place your code here."
   (with-eval-after-load 'mu4e
      (add-to-list 'mu4e-view-actions
                   '("thunderlink" . thunderbird-open) )
+     (setq mu4e-view-use-gnus t)
+     ;; solve mu4e slow https://github.com/djcb/mu/issues/1866
+     (add-to-list 'mu4e-bookmarks
+                  '( :name  "Since Yesterday"
+                            :query "date:1d..now"
+                            :key   ?y))
     )
   (setq org-todo-keywords
         '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" )))
