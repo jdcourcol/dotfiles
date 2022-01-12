@@ -41,6 +41,10 @@ values."
      yaml
      lsp
      python
+     (python :variables
+             python-backend 'lsp
+             python-lsp-server 'pylsp
+             python-formatter 'yapf) 
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; ----------------------------------------------------------------
@@ -84,7 +88,6 @@ values."
                                       dumb-jump
                                       request
                                       json
-                                      cl
                                       evil-terminal-cursor-changer
                                       command-log-mode
                                       edit-server
@@ -339,7 +342,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  
   (setq-default show-trailing-whitespace t)
+  (add-hook 'org-mode-hook
+            (lambda()
+              (setq show-trailing-whitespace nil)))
   (defun thunderbird-open (msgid)
     "open msgid in thunderbird"
     (setq debug-on-error 't)
