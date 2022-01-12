@@ -351,6 +351,7 @@ you should place your code here."
      (add-to-list 'mu4e-view-actions
                   '("thunderlink" . thunderbird-open) )
      (setq mu4e-view-use-gnus t)
+     (setq mm-text-html-renderer 'shr )
      ;; solve mu4e slow https://github.com/djcb/mu/issues/1866
      (add-to-list 'mu4e-bookmarks
                   '( :name  "Since Yesterday"
@@ -401,7 +402,7 @@ you should place your code here."
   (setq org-capture-templates
         `(
           ("t" "TASK" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Task.org" "Task")
-           "* TODO %^{description} %U" :empty-lines: 1)
+           "* TODO %^{description} \nDEADLINE: %(org-insert-time-stamp (current-time ))\n" )
           ("m" "Email Workflow")
           ("mf" "Follow Up" entry (file+olp "/Users/courcol/switchdrive/me/org-files/agenda/Mail.org" "Follow Up")
            "* TODO follow %a from  %:fromname %:date\nDEADLINE:%:date")
