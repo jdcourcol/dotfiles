@@ -136,7 +136,7 @@ alias gcas='git commit --amend --no-edit'
 alias readlink=greadlink
 alias pipi='pip install -i http://localhost:3141/root/pypi'
 alias v='set +m; env TERM=xterm-256colors f -e "emacs -nw" '
-
+alias treeb='tree --du -shFan | grep "/"' 
 export HISTCONTROL=ignoredups
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
@@ -182,4 +182,17 @@ function ppkill() {
     ppgrep $QUERY | xargs kill $*
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+
+source /Users/courcol/Library/Preferences/org.dystroy.broot/launcher/bash/br
+export PATH="/Applications/NEURON-7.7/nrn/x86_64/bin":$PATH #added by NEURON installer
+export PYTHONPATH="/Applications/NEURON-7.7/nrn/lib/python":$PYTHONPATH #added by NEURON installer
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export PATH="/Applications/NEURON-7.8/bin":$PATH #added by NEURON installer
+export PYTHONPATH="/Applications/NEURON-7.8/lib/python":$PYTHONPATH #added by NEURON installer
