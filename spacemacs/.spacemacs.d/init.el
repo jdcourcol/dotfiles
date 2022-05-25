@@ -380,6 +380,7 @@ you should place your code here."
     )
   (setq org-todo-keywords
         '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" )))
+  (load-file "/Users/courcol/.spacemacs.d/ros/org-ros.el")
   (load-file "/Users/courcol/.spacemacs.d/org-recoll.el")
   ;; (defun call-adobe(file_path _)
   ;;   "open a path w/ adobe"
@@ -405,7 +406,7 @@ you should place your code here."
         mu4e-refile-folder "/Archive"
         mu4e-sent-folder "/&AMk-l&AOk-ments envoy&AOk-s"
         mu4e-get-mail-command "mbsync -a"
-        mu4e-update-interval 300
+        mu4e-update-interval 600
         mu4e-compose-signature-auto-include nil
         mu4e-view-show-images t
         mu4e-view-show-addresses t

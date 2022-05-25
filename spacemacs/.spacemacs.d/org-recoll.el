@@ -25,7 +25,7 @@
 
 ;; Public Variables
 
-(defcustom org-recoll-results-num 10
+(defcustom org-recoll-results-num 50
   "This is the number of results to be displayed per page.
 High numbers will reduce responsiveness.  It's set to 10 by
 default for convenient paging"
