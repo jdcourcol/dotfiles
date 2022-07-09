@@ -200,3 +200,11 @@
 | command-log-mode            | activate log for buffer |
 | global-command-log-mode     |                         |
 | clm/open-command-log-buffer | open log                |
+
+* recoll
+| key            | description          |
+|----------------+----------------------|
+| c-c u          | update recoll index  |
+| c-c g          | recoll query         |
+| mime:text/html | filter by html pages |
+|                |                      |
