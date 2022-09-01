@@ -133,14 +133,14 @@
    |-----+--------------------|
    | t   | rotate done status |
 ** tags
-| key | description |
-|-----+-------------|
-|     |             |
+  | key | description |
+  |-----+-------------|
+  |     |             |
 ** link
-| key   | description     |
-|-------+-----------------|
-| , i l | org-insert-link |
-|       |                 |
+  | key   | description     |
+  |-------+-----------------|
+  | , i l | org-insert-link |
+  |       |                 |
 
 * Configuration
   | key       | description       |
