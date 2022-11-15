@@ -69,7 +69,7 @@ values."
      org
      mu4e
      (mu4e :variables
-           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e/"
+           mu4e-installation-path "/Users/courcol/tools/mu/mu4e"
            )
      osx
      ranger
@@ -332,7 +332,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; TODO this raises a warning.
   ;; Shell
-  ;; (setq shell-default-term-shell "/bin/zsh")
+  (setq shell-default-term-shell "/bin/zsh")
   (setq avy-all-windows 'all-frames)
   (setq ispell-program-name "aspell")
   (setq mu4e-mu-binary "/usr/local/bin/mu")
@@ -352,7 +352,7 @@ you should place your code here."
               (setq show-trailing-whitespace nil)))
   (setq org-refile-targets '((nil :maxlevel . 2)
                              ))
-  (defun org-archive-done-tasks ()
+  (add-hook 'auto-save-hook 'org-save-all-org-buffers)(defun org-archive-done-tasks ()
     (interactive)
     (org-map-entries
      (lambda ()
@@ -381,12 +381,12 @@ you should place your code here."
     )
   (setq org-todo-keywords
         '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" )))
-  (load-file "/Users/courcol/.spacemacs.d/ros/org-ros.el")
+  ;; (load-file "/Users/courcol/.spacemacs.d/ros/org-ros.el")
   (load-file "/Users/courcol/.spacemacs.d/org-recoll.el")
   ;; (defun call-adobe(file_path _)
   ;;   "open a path w/ adobe"
   ;;   (shell-command (format
-  (org-add-link-type "pdf" (lambda (path) (shell-command (format "'/Applications/Adobe Acrobat Reader DC.app/Contents/MacOS/AdobeReader' '%s'" path))))
+  ;; (org-add-link-type "pdf" (lambda (path) (shell-command (format "'/Applications/Adobe Acrobat Reader DC.app/Contents/MacOS/AdobeReader' '%s'" path))))
 
   (define-key global-map (kbd "C-c t")
      (lambda () (interactive) (thunderbird-open nil .))
@@ -406,7 +406,7 @@ you should place your code here."
         mu4e-trash-folder "/Trash"
         mu4e-refile-folder "/Archive"
         mu4e-sent-folder "/&AMk-l&AOk-ments envoy&AOk-s"
-        mu4e-get-mail-command "mbsync -a"
+        mu4e-get-mail-command (concat (executable-find "mbsync") " -a")
         mu4e-update-interval 3600
         mu4e-compose-signature-auto-include nil
         mu4e-view-show-images t
