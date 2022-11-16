@@ -352,7 +352,8 @@ you should place your code here."
               (setq show-trailing-whitespace nil)))
   (setq org-refile-targets '((nil :maxlevel . 2)
                              ))
-  (add-hook 'auto-save-hook 'org-save-all-org-buffers)(defun org-archive-done-tasks ()
+
+  (defun org-archive-done-tasks ()
     (interactive)
     (org-map-entries
      (lambda ()
@@ -383,11 +384,9 @@ you should place your code here."
         '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" )))
   ;; (load-file "/Users/courcol/.spacemacs.d/ros/org-ros.el")
   (load-file "/Users/courcol/.spacemacs.d/org-recoll.el")
-  ;; (defun call-adobe(file_path _)
-  ;;   "open a path w/ adobe"
-  ;;   (shell-command (format
-  ;; (org-add-link-type "pdf" (lambda (path) (shell-command (format "'/Applications/Adobe Acrobat Reader DC.app/Contents/MacOS/AdobeReader' '%s'" path))))
-
+  (load-file "/Users/courcol/.spacemacs.d/real-auto-save.el")
+  (require 'real-auto-save)
+  (add-hook 'org-mode-hook 'real-auto-save-mode)
   (define-key global-map (kbd "C-c t")
      (lambda () (interactive) (thunderbird-open nil .))
     )
