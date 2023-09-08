@@ -62,14 +62,13 @@ values."
      emacs-lisp
      fasd
      git
-     github
      html
      javascript
      treemacs
      org
      mu4e
      (mu4e :variables
-           mu4e-installation-path "/Users/courcol/tools/mu/mu4e"
+           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e"
            )
      osx
      ranger
@@ -172,11 +171,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+   ;; dotspacemacs-default-font '("Source Code Pro"
+   ;;                             :size 13
+   ;;                             :weight normal
+   ;;                             :width normal
+   ;;                             :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
