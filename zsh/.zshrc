@@ -187,7 +187,6 @@ function ppkill() {
 #   eval "$(pyenv init -)"
 # fi
 
-source /Users/courcol/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export PATH="/Applications/NEURON-7.7/nrn/x86_64/bin":$PATH #added by NEURON installer
 export PYTHONPATH="/Applications/NEURON-7.7/nrn/lib/python":$PYTHONPATH #added by NEURON installer
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -196,3 +195,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 export PATH="/Applications/NEURON-7.8/bin":$PATH #added by NEURON installer
 export PYTHONPATH="/Applications/NEURON-7.8/lib/python":$PYTHONPATH #added by NEURON installer
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
