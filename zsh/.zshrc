@@ -85,15 +85,17 @@ alias pkz='piknik -copy < /dev/null'
 va () {
    source `find . -name activate`
 }
-
+venv () {
+    python3 -mvenv $1
+    $1/bin/pip install -U pip
+    $1/bin/pip install -U ipython ipdb rich pdbpp
+    rehash
+    . $1/bin/activate
+}
 # iterm2 shell integration
 # source ~/.iterm2_shell_integration.`basename $SHELL`
 
 
-viz(){
- klist || kinit
- ssh -Yt bbplxviz1.epfl.ch $'salloc -n1 -p interactive /bin/bash -c \' ssh -Y `srun -p interactive hostname`\' '
-}
 
 # W: whole file (no delta)
 # a archive
@@ -198,3 +200,11 @@ export PYTHONPATH="/Applications/NEURON-7.8/lib/python":$PYTHONPATH #added by NE
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# pnpm
+export PNPM_HOME="/Users/courcol/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
